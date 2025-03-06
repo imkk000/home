@@ -25,6 +25,7 @@ alias commit="go-git-commit-date"
 function otherwise
     # set PATH
     set PATH /usr/local/go/bin $PATH
+    set PATH $HOME/nvim-linux/bin $PATH
     # alias
     alias pbcopy="xsel -b --input"
     alias pbpaste="xsel -b --output"
