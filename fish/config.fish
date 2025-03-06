@@ -31,6 +31,7 @@ function otherwise
     alias pbpaste="xsel -b --output"
     if test -f /usr/bin/wslview
         alias ff="/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe -p"
+        alias bb="/mnt/c/Program\ Files/BraveSoftware/Brave-Browser/Application/brave.exe"
     end
     set -U nvm_default_version v22.2.0
 end
