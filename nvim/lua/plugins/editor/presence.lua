@@ -3,5 +3,6 @@ return {
   plugins.editor.repo_presence,
   name = plugins.editor.presence,
   event = "VeryLazy",
+  enabled = false,
   config = true,
 }
