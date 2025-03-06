@@ -45,6 +45,8 @@ function only_darwin
     set PATH /opt/homebrew/bin $PATH
     # alias
     alias ff="open -a Firefox -n --args -p"
+
+    if [ -f "$HOME/.google-cloud-sdk/path.fish.inc" ]; . "$HOME/.google-cloud-sdk/path.fish.inc"; end
 end
 
 # select os
@@ -87,7 +89,6 @@ new_abbr glv "glab repo view -w"
 new_abbr glmc "glab mr create --remove-source-branch --squash-before-merge --target-branch="
 new_abbr glmcm "glab mr create --remove-source-branch --squash-before-merge --target-branch=main"
 new_abbr glmcd "glab mr create --remove-source-branch --squash-before-merge --target-branch=develop"
-new_abbr glmru glab_mr_url
 
 # abbreviation git
 new_abbr gds "git diff --staged"
@@ -147,11 +148,7 @@ function go_new_poc
   git config user.email nattakit.boonyang@gmail.com
 end
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/.google-cloud-sdk/path.fish.inc" ]; . "$HOME/.google-cloud-sdk/path.fish.inc"; end
-
 function fish_init
-  # install fisher and plugins
   curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
   fisher install pure-fish/pure
   fisher install patrickf1/fzf.fish
