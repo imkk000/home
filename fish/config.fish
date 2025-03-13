@@ -45,6 +45,7 @@ function only_darwin
     set PATH /opt/homebrew/bin $PATH
     # alias
     alias ff="open -a Firefox -n --args -p"
+    alias bb="open -a Brave\ Browser -n"
 
     if [ -f "$HOME/.google-cloud-sdk/path.fish.inc" ]; . "$HOME/.google-cloud-sdk/path.fish.inc"; end
 end
