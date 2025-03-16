@@ -20,7 +20,6 @@ alias v="nvim"
 alias vv="nvim ."
 alias python="python3"
 alias ggup="gup"
-alias commit="go-git-commit-date"
 
 function otherwise
     # set PATH
@@ -33,7 +32,7 @@ function otherwise
     if test -f /usr/bin/wslview
         alias ff="/mnt/c/Program\ Files/LibreWolf/librewolf.exe -p"
     end
-    set -U nvm_default_version v22.2.0
+    set -U nvm_default_version v23.10.0
 end
 
 function only_darwin
