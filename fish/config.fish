@@ -27,11 +27,11 @@ function otherwise
     set PATH /usr/local/go/bin $PATH
     set PATH $HOME/nvim-linux/bin $PATH
     # alias
+    alias cat="batcat"
     alias pbcopy="xsel -b --input"
     alias pbpaste="xsel -b --output"
     if test -f /usr/bin/wslview
-        alias ff="/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe -p"
-        alias bb="/mnt/c/Program\ Files/BraveSoftware/Brave-Browser/Application/brave.exe"
+        alias ff="/mnt/c/Program\ Files/LibreWolf/librewolf.exe -p"
     end
     set -U nvm_default_version v22.2.0
 end
@@ -44,8 +44,7 @@ function only_darwin
     # path
     set PATH /opt/homebrew/bin $PATH
     # alias
-    alias ff="open -a Firefox -n --args -p"
-    alias bb="open -a Brave\ Browser -n"
+    alias ff="open -a LibreWolf -n --args -p"
 
     if [ -f "$HOME/.google-cloud-sdk/path.fish.inc" ]; . "$HOME/.google-cloud-sdk/path.fish.inc"; end
 end
