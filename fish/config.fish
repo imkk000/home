@@ -32,7 +32,6 @@ function otherwise
     if test -f /usr/bin/wslview
         alias ff="/mnt/c/Program\ Files/LibreWolf/librewolf.exe -p"
     end
-    set -U nvm_default_version v23.10.0
 end
 
 function only_darwin
