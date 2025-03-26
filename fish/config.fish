@@ -88,6 +88,7 @@ new_abbr glv "glab repo view -w"
 new_abbr glmc "glab mr create --remove-source-branch --squash-before-merge --target-branch="
 new_abbr glmcm "glab mr create --remove-source-branch --squash-before-merge --target-branch=main"
 new_abbr glmcd "glab mr create --remove-source-branch --squash-before-merge --target-branch=develop"
+new_abbr glmcf "glab mr create --remove-source-branch --squash-before-merge --target-branch=features"
 
 # abbreviation git
 new_abbr gds "git diff --staged"
