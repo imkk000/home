@@ -31,6 +31,7 @@ function otherwise
     alias pbcopy="xsel -b --input"
     alias pbpaste="xsel -b --output"
     if test -f /usr/bin/wslview
+        set -x BROWSER "/mnt/c/Program\ Files/Librewolf/librewolf.exe"
         alias ff="/mnt/c/Program\ Files/LibreWolf/librewolf.exe -p"
     end
 end
