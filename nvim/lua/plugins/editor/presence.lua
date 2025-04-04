@@ -4,4 +4,5 @@ return {
   name = plugins.editor.presence,
   event = "VeryLazy",
   config = true,
+  enabled = false,
 }
