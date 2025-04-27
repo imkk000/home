@@ -31,8 +31,8 @@ function otherwise
     alias pbcopy="xsel -b --input"
     alias pbpaste="xsel -b --output"
     if test -f /usr/bin/wslview
-        set -x BROWSER "/mnt/c/Program\ Files/Librewolf/librewolf.exe"
-        alias ff="/mnt/c/Program\ Files/LibreWolf/librewolf.exe -p"
+        set -x BROWSER "/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe"
+        alias ff="/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe"
     end
 end
 
@@ -44,7 +44,7 @@ function only_darwin
     # path
     set PATH /opt/homebrew/bin $PATH
     # alias
-    alias ff="open -a LibreWolf -n --args -p"
+    alias ff="open -a Firefox -n"
 
     if [ -f "$HOME/.google-cloud-sdk/path.fish.inc" ]; . "$HOME/.google-cloud-sdk/path.fish.inc"; end
 end
@@ -64,7 +64,7 @@ set -U pure_shorten_prompt_current_directory_length 1
 
 # custom bindings for fzf
 fzf --fish | source
-fzf_configure_bindings --history=\cr --directory=\cf --variables= --processes= --git_log= --git_status=
+fzf_configure_bindings --history=\cr --directory=\cf --variables= --processes= --git_log= --git_status=\cg
 
 # abbreviation last history
 function last_history_item
