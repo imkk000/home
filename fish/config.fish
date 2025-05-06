@@ -1,6 +1,3 @@
-set -Ux EDITOR nvim
-set -U fish_greeting ""
-
 # set default PATH
 fish_add_path ~/.go/bin
 fish_add_path ~/.cargo/bin
@@ -9,7 +6,6 @@ fish_add_path ~/.local/bin
 # set default alias
 alias fish_reload="source $HOME/.config/fish/config.fish"
 alias ls="eza -g --color=always"
-alias cat="bat"
 alias l="ls"
 alias e="exit"
 alias c="clear"
@@ -18,8 +14,6 @@ alias vim="nvim"
 alias v="nvim"
 alias vv="nvim ."
 alias python="python3"
-
-set -U nvm_default_version v23.11.0
 
 function only_linux
     # alias
@@ -37,6 +31,7 @@ function only_darwin
     fish_add_path /opt/homebrew/bin
 
     # alias
+    alias cat="bat"
     alias ff="open -a Firefox -n"
 
     if [ -f "$HOME/.google-cloud-sdk/path.fish.inc" ]; . "$HOME/.google-cloud-sdk/path.fish.inc"; end
@@ -49,6 +44,11 @@ switch (uname)
     case Linux
         only_linux
 end
+
+# common
+set -Ux EDITOR nvim
+set -U fish_greeting ""
+set -U nvm_default_version v23.11.0
 
 # custom pure themes
 set -U pure_symbol_prompt "󰄛"
@@ -132,13 +132,28 @@ new_abbr "....." "../../../.."
 new_abbr "......" "../../../../.."
 new_abbr "......." "../../../../../.."
 
-function go_new_poc
+function go_new_poc -a mod_name path_name
+  set -l pwd $PWD
+  if test -z $mod_name
+    set mod_name poc
+  end
+  if not test -z $path_name
+    mkdir $path_name
+    cd $path_name
+  end
+
+  echo mod  = $mod_name
+  echo path = $path_name
+  echo pwd  = $pwd\n
+
   set -l go_version 1.$(go env GOVERSION | awk -F'.' '{print $2}')
-  go mod init poc
+  go mod init $mod_name
   go mod edit -go=$go_version
   go get -u github.com/rs/zerolog
-  echo -e "package main\n\nfunc main() {\n\n}\n" > main.go
+  echo -e "package main\n\nimport \"github.com/rs/zerolog/log\"\n\nfunc main() {\n\tlog.Debug().Msg(\"\")\n}\n" > main.go
 
   git init
   git config user.email nattakit.boonyang@gmail.com
+
+  cd $pwd
 end
