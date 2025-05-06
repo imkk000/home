@@ -3,6 +3,7 @@ set -U fish_greeting ""
 
 # set default PATH
 set PATH $PATH $HOME/go/bin
+set PATH $PATH $HOME/.cargo/bin
 set PATH $PATH $HOME/.local/bin
 set PATH $PATH /usr/local/bin
 set PATH $PATH /usr/local/sbin
@@ -20,20 +21,14 @@ alias vim="nvim"
 alias v="nvim"
 alias vv="nvim ."
 alias python="python3"
-alias ggup="gup"
+
+set -U nvm_default_version v23.11.0
 
 function otherwise
-    # set PATH
-    set PATH /usr/local/go/bin $PATH
-    set PATH $HOME/nvim-linux/bin $PATH
     # alias
     alias cat="batcat"
     alias pbcopy="xsel -b --input"
     alias pbpaste="xsel -b --output"
-    if test -f /usr/bin/wslview
-        set -x BROWSER "/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe"
-        alias ff="/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe"
-    end
 end
 
 function only_darwin
@@ -90,6 +85,7 @@ new_abbr glmc "glab mr create --remove-source-branch --squash-before-merge --tar
 new_abbr glmcm "glab mr create --remove-source-branch --squash-before-merge --target-branch=main"
 new_abbr glmcd "glab mr create --remove-source-branch --squash-before-merge --target-branch=develop"
 new_abbr glmcf "glab mr create --remove-source-branch --squash-before-merge --target-branch=features"
+abbr --erase gup
 
 # abbreviation git
 new_abbr gds "git diff --staged"
@@ -148,14 +144,3 @@ function go_new_poc
   git init
   git config user.email nattakit.boonyang@gmail.com
 end
-
-function fish_init
-  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-  fisher install pure-fish/pure
-  fisher install patrickf1/fzf.fish
-  fisher install catppuccin/fish
-  fisher install jorgebucaran/nvm.fish
-  fisher install jethrokuan/z
-  fisher install jhillyerd/plugin-git
-end
-
