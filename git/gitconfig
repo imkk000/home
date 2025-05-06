@@ -5,6 +5,7 @@
 	editor = nvim
 	ignorecase = false
 	autocrlf = input
+	excludesFile = /home/kk/.gitignore
 [init]
 	defaultBranch = main
 [push]
