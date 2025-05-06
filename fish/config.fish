@@ -2,12 +2,9 @@ set -Ux EDITOR nvim
 set -U fish_greeting ""
 
 # set default PATH
-set PATH $PATH $HOME/.go/bin
-set PATH $PATH $HOME/.cargo/bin
-set PATH $PATH $HOME/.local/bin
-set PATH $PATH /usr/local/bin
-set PATH $PATH /usr/local/sbin
-set PATH $PATH /usr/local/bin
+fish_add_path ~/.go/bin
+fish_add_path ~/.cargo/bin
+fish_add_path ~/.local/bin
 
 # set default alias
 alias fish_reload="source $HOME/.config/fish/config.fish"
@@ -37,7 +34,8 @@ function only_darwin
     set -x BROWSER open
     set -x HOMEBREW_NO_ANALYTICS 1
     # path
-    set PATH /opt/homebrew/bin $PATH
+    fish_add_path /opt/homebrew/bin
+
     # alias
     alias ff="open -a Firefox -n"
 
