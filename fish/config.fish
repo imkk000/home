@@ -2,7 +2,7 @@ set -Ux EDITOR nvim
 set -U fish_greeting ""
 
 # set default PATH
-set PATH $PATH $HOME/go/bin
+set PATH $PATH $HOME/.go/bin
 set PATH $PATH $HOME/.cargo/bin
 set PATH $PATH $HOME/.local/bin
 set PATH $PATH /usr/local/bin
@@ -24,7 +24,7 @@ alias python="python3"
 
 set -U nvm_default_version v23.11.0
 
-function otherwise
+function only_linux
     # alias
     alias cat="batcat"
     alias pbcopy="xsel -b --input"
@@ -48,8 +48,8 @@ end
 switch (uname)
     case Darwin
         only_darwin
-    case '*'
-        otherwise
+    case Linux
+        only_linux
 end
 
 # custom pure themes
