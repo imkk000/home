@@ -30,3 +30,7 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+-- Disable right click mouse
+vim.cmd("aunmenu PopUp")
+vim.api.nvim_clear_autocmds({ group = "nvim.popupmenu" })

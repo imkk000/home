@@ -9,10 +9,8 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 -- options
-opt.background = "dark"
--- opt.background = "light"
-opt.rtp:append("/opt/homebrew/opt/fzf")
 opt.autowrite = true
+opt.background = "dark"
 opt.backup = false
 opt.clipboard = "unnamedplus"
 opt.completeopt = "menu,menuone,noselect"
@@ -23,12 +21,12 @@ opt.encoding = "utf-8"
 opt.errorbells = true
 opt.expandtab = true
 opt.fileencoding = "utf-8"
+opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.foldcolumn = "0"
 opt.foldenable = true
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldlevel = 99
 opt.foldlevelstart = 99
-opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.foldmethod = "expr"
 opt.formatoptions = "jcroqlnt"
 opt.grepformat = "%f:%l:%c:%m"
@@ -47,8 +45,9 @@ opt.number = true
 opt.pumblend = 10
 opt.pumheight = 10
 opt.relativenumber = true
+opt.rtp:append("/opt/homebrew/opt/fzf")
 opt.scrolloff = 4
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 opt.shiftround = true
 opt.shiftwidth = 2
 opt.shortmess:append({ W = true, I = true, c = true })
@@ -73,9 +72,9 @@ opt.undolevels = 10000
 opt.updatetime = 200
 opt.visualbell = true
 opt.wildmode = "longest:full,full"
+opt.winborder = "double"
 opt.winminwidth = 5
 opt.wrap = false
-opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 vim.diagnostic.config({
   signs = { text = icons.diagnostic },
