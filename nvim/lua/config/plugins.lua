@@ -78,6 +78,7 @@ local _plugins = {
     alpha = "goolord/alpha-nvim",
     guihua = "ray-x/guihua.lua",
     nio = "nvim-neotest/nvim-nio",
+    winsep = "nvim-zh/colorful-winsep.nvim",
   },
 }
 
