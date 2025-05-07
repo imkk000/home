@@ -72,7 +72,6 @@ opt.undolevels = 10000
 opt.updatetime = 200
 opt.visualbell = true
 opt.wildmode = "longest:full,full"
-opt.winborder = "double"
 opt.winminwidth = 5
 opt.wrap = false
 
