@@ -35,7 +35,7 @@ opt.hidden = true
 opt.ignorecase = true
 opt.inccommand = "nosplit"
 opt.iskeyword:append("-")
-opt.laststatus = 0
+opt.laststatus = 3
 opt.list = true
 opt.listchars:append("extends:❯")
 opt.listchars:append("precedes:❮")
