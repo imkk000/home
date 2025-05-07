@@ -16,6 +16,8 @@ alias vv="nvim ."
 alias python="python3"
 
 function only_linux
+    fish_add_path /home/kk/.spicetify
+
     # alias
     alias cat="batcat"
     alias pbcopy="xsel -b --input"
