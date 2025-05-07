@@ -49,6 +49,8 @@ end
 set -Ux EDITOR nvim
 set -U fish_greeting ""
 set -U nvm_default_version v23.11.0
+set -U function_path ~/.private-dotfiles/fish/functions
+set -a fish_function_path $function_path
 
 # custom pure themes
 set -U pure_symbol_prompt "󰄛"
