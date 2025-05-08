@@ -17,6 +17,23 @@ return {
     diagnostics = { underline = false },
     autoformat = true,
     servers = {
+      gopls = {
+        settings = {
+          gopls = {
+            vulncheck = "Imports",
+            usePlaceholders = true,
+            hints = {
+              assignVariableTypes = true,
+              compositeLiteralFields = true,
+              compositeLiteralTypes = true,
+              constantValues = true,
+              functionTypeParameters = true,
+              parameterNames = true,
+              rangeVariableTypes = true,
+            },
+          },
+        },
+      },
       jsonls = {
         on_new_config = function(new_config)
           new_config.settings.json.schemas = new_config.settings.json.schemas or {}
@@ -44,6 +61,7 @@ return {
   },
   config = function(_, opts)
     vim.lsp.enable(servers.lsp, false)
+    vim.lsp.inlay_hint.enable(true)
 
     local config = require("lspconfig")
     local cmp_lsp = require("cmp_nvim_lsp")
@@ -60,26 +78,22 @@ return {
         vim.lsp.buf.format({ timeout_ms = 10000, aysnc = false, bufnr = bufnr })
       end
 
-      map("formatting", "n", "<leader>cf", format, "Format")
-      map("rangeFormatting", "v", "<leader>cf", format, "Format")
-      map("rename", "n", "<leader>cr", vim.lsp.buf.rename, "Rename")
-      map("definition", "n", "gd", function()
-        tc.lsp_definitions(tc_opts)
-      end, "Goto Definition")
+      map("formatting", "n", "gf", format, "Format")
+      map("rangeFormatting", "v", "gf", format, "Format")
+      map("rename", "n", "gn", vim.lsp.buf.rename, "Rename")
+      -- stylua: ignore
+      map("definition", "n", "gD", function() tc.lsp_definitions(tc_opts) end, "Goto Definition")
       map("references", "n", "gr", "<cmd>Telescope lsp_references<cr>", "References")
-      map("declaration", "n", "gD", vim.lsp.buf.declaration, "Goto Declaration")
-      map("implementation", "n", "gI", function()
-        tc.lsp_implementations(tc_opts)
-      end, "Goto Implementation")
-      map("typeDefinition", "n", "gy", function()
-        tc.lsp_type_definitions(tc_opts)
-      end, "Goto Type Definition")
+      map("declaration", "n", "gd", vim.lsp.buf.declaration, "Goto Declaration")
+      -- stylua: ignore
+      map("implementation", "n", "gi", function() tc.lsp_implementations(tc_opts) end, "Goto Implementation")
+      -- stylua: ignore
+      map("typeDefinition", "n", "gy", function() tc.lsp_type_definitions(tc_opts) end, "Goto Type Definition")
       map("hover", "n", "K", vim.lsp.buf.hover, "Hover")
-      map("signatureHelp", "n", "gK", vim.lsp.buf.signature_help, "Signature Help")
-      map("signatureHelp", "i", "<c-k>", vim.lsp.buf.signature_help, "Signature Help")
-      map("diagnostic", "n", "[d", vim.diagnostic.goto_prev, "Previous Diagnostic")
-      map("diagnostic", "n", "]d", vim.diagnostic.goto_next, "Next Diagnostic")
       map("codeAction", "n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
+      map("documentSymbol", "n", "gS", tc.lsp_document_symbols, "Document Symbol")
+      map("signatureHelp", "n", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
+      map("diagnostics", "n", "gs", tc.diagnostics, "Diagnostics")
 
       -- format on save
       if util.has(bufnr, "formatting") then

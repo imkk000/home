@@ -15,7 +15,6 @@ return {
       neotree = true,
       noice = true,
       notify = true,
-      symbols_outline = true,
       treesitter = true,
       treesitter_context = true,
       which_key = true,

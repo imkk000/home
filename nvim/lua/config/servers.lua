@@ -5,19 +5,20 @@ local lsp = {
   "lua_ls",
   "yamlls",
   "marksman",
-  "gopls",
   "emmet_ls",
   "html",
   "ts_ls",
   "cssls",
   "dockerls",
   "docker_compose_language_service",
+  "gopls",
 }
 
 _G.servers = {
   lsp = lsp,
   mason_lsp = lsp,
   null_ls = {
+    "codespell",
     "fish_indent",
     "fish",
     "checkmake",
@@ -34,10 +35,13 @@ _G.servers = {
     "impl",
     "prettier",
     "spell",
+    "yamllint",
+    "golangci_lint",
   },
   sources_null_ls = function()
     local builtins = require("null-ls").builtins
     return {
+      builtins.diagnostics.codespell,
       builtins.diagnostics.fish,
       builtins.diagnostics.checkmake,
       builtins.diagnostics.hadolint,
@@ -54,10 +58,16 @@ _G.servers = {
       builtins.formatting.buf,
       builtins.formatting.prettier,
       builtins.completion.spell,
+      builtins.diagnostics.yamllint,
       builtins.formatting.golines.with({
         extra_args = {
           "--max-len=180",
           "--base-formatter=gofumpt",
+        },
+      }),
+      builtins.diagnostics.golangci_lint.with({
+        extra_args = {
+          "--enable=revive,gosec,misspell",
         },
       }),
     }

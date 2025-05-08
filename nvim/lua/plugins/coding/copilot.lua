@@ -9,5 +9,12 @@ return {
     suggestion = { enabled = false },
     panel = { enabled = false },
     filetypes = { ["*"] = true },
+    server_opts_overrides = {
+      settings = {
+        telemetry = {
+          telemetryLevel = "off",
+        },
+      },
+    },
   },
 }
