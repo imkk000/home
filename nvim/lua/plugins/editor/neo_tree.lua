@@ -3,7 +3,7 @@ return {
   plugins.editor.repo_neo_tree,
   name = plugins.editor.neo_tree,
   branch = "v3.x",
-  event = "VeryLazy",
+  lazy = false,
   dependencies = {
     plugins.ui.web_devicons,
     plugins.ui.nui,

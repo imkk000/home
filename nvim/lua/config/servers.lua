@@ -1,4 +1,5 @@
-local base_lsp = {
+local lsp = {
+  "buf_ls",
   "bashls",
   "jsonls",
   "lua_ls",
@@ -13,21 +14,14 @@ local base_lsp = {
   "docker_compose_language_service",
 }
 
-local lsp = { "buf_ls" }
-local mason_lsp = { "buf_ls" }
-
-table.move(base_lsp, 1, #base_lsp, 2, lsp)
-table.move(base_lsp, 1, #base_lsp, 2, mason_lsp)
-
 _G.servers = {
   lsp = lsp,
-  mason_lsp = mason_lsp,
+  mason_lsp = lsp,
   null_ls = {
     "fish_indent",
     "fish",
     "checkmake",
     "hadolint",
-    "yamllint",
     "revive",
     "shfmt",
     "stylua",
@@ -39,7 +33,6 @@ _G.servers = {
     "gomodifytags",
     "impl",
     "prettier",
-    "codespell",
     "spell",
   },
   sources_null_ls = function()
@@ -48,7 +41,6 @@ _G.servers = {
       builtins.diagnostics.fish,
       builtins.diagnostics.checkmake,
       builtins.diagnostics.hadolint,
-      builtins.diagnostics.yamllint,
       builtins.diagnostics.revive,
       builtins.diagnostics.buf,
       builtins.code_actions.gomodifytags,
@@ -61,7 +53,6 @@ _G.servers = {
       builtins.formatting.goimports,
       builtins.formatting.buf,
       builtins.formatting.prettier,
-      builtins.diagnostics.codespell,
       builtins.completion.spell,
       builtins.formatting.golines.with({
         extra_args = {

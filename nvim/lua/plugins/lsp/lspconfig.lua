@@ -43,6 +43,8 @@ return {
     },
   },
   config = function(_, opts)
+    vim.lsp.enable(servers.lsp, false)
+
     local config = require("lspconfig")
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities = cmp_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
