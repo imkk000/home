@@ -1,0 +1,22 @@
+{
+  "Import Zerolog": {
+    "prefix": "zlimp",
+    "body": "import \"github.com/rs/zerolog\""
+  },
+  "Zerolog Error": {
+    "prefix": "zlerr",
+    "body": "log${1|.Fatal().Err(err),.Err(err)|}.Msg(\"$0\")"
+  },
+  "Zerolog Debug": {
+    "prefix": "zldbg",
+    "body": "log.Debug().Msg(\"$0\")"
+  },
+  "If Error": {
+    "prefix": "iferr",
+    "body": [
+      "if err != nil {\n",
+      "\t${0:return err}\n",
+      "}"
+    ]
+  }
+}
