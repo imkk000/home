@@ -10,6 +10,11 @@ pcall(keymap.del, "n", "<c-h>")
 pcall(keymap.del, "n", "<c-j")
 pcall(keymap.del, "n", "<c-k>")
 pcall(keymap.del, "n", "<c-l>")
+pcall(keymap.del, "n", "grr")
+pcall(keymap.del, "n", "gra")
+pcall(keymap.del, "n", "grn")
+pcall(keymap.del, "n", "gri")
+pcall(keymap.del, "n", "gO")
 
 keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -22,20 +27,9 @@ keymap.set("n", "<leader>a", "ggVG", opts)
 opts.desc = " Cut all text"
 keymap.set("n", "<leader>A", "ggVGd", opts)
 
-opts.desc = "󰗼 Quit NVIM"
-keymap.set("n", "<leader>qq", "<cmd>qa!<cr>", opts)
-
-opts.desc = " New file"
-keymap.set("n", "<leader>n", "<cmd>ene <cr>", opts)
 opts.desc = " Save file"
 -- stylua: ignore
 keymap.set({ "i", "x", "n", "s" }, "<c-s>", function() vim.cmd("w") end, opts)
-
-opts.desc = " Lazy"
-keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", opts)
-
-opts.desc = " LspInfo"
-keymap.set("n", "<leader>cl", "<cmd>LspInfo<cr>", opts)
 
 opts.desc = " spider-w"
 keymap.set({ "n", "o", "x" }, "W", "<cmd>lua require('spider').motion('w')<cr>", opts)

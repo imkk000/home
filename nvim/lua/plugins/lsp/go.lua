@@ -15,7 +15,9 @@ return {
   ft = { "go", "gomod" },
   build = ':lua require("go.install").update_all_sync()',
   opts = {
+    lsp_cfg = false,
     lsp_keymaps = false,
+    lsp_on_attach = nil,
     verbose = false,
     textobjects = false,
     run_in_floaterm = true,
@@ -24,13 +26,16 @@ return {
       width = 0.95,
     },
     diagnostic = { underline = false },
-    lsp_inlay_hints = { enable = true },
   },
   config = function(_, opts)
     local opt = { noremap = true, silent = true }
     local go = require("go")
     go.setup(opts)
 
+    opt.desc = " Toggle Inlay"
+    vim.keymap.set("n", "<leader>ki", function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    end, opt)
     opt.desc = " GoTestFunc"
     vim.keymap.set("n", "<leader>kf", "<cmd>GoTestFunc<cr>", opt)
     opt.desc = " GoTestFile"

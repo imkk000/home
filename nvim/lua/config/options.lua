@@ -46,6 +46,7 @@ opt.pumblend = 10
 opt.pumheight = 10
 opt.relativenumber = true
 opt.rtp:append("/opt/homebrew/opt/fzf")
+opt.rtp:append("~/.go/bin/fzf")
 opt.scrolloff = 4
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 opt.shiftround = true

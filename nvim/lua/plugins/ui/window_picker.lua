@@ -4,5 +4,8 @@ return {
   name = plugins.ui.window_picker,
   event = "VeryLazy",
   version = "2.*",
+  opt = {
+    hint = "statusline-winbar",
+  },
   config = true,
 }

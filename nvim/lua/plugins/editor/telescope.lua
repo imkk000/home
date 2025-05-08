@@ -20,5 +20,6 @@ return {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = " Files" },
     { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = " Live Grep" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = " Recent" },
+    { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = " Quickfix" },
   },
 }
