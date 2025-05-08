@@ -18,7 +18,6 @@ return {
         { "<leader>o", group = " Dismiss" },
         { "<leader>q", group = "󰗼 Exit" },
         { "<leader>s", group = " Search" },
-        { "<leader>x", group = "󰍉 Trouble" },
         { "[", group = " Prev" },
         { "]", group = " Next" },
         { "g", group = "󰷕 Goto" },
