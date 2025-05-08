@@ -79,12 +79,12 @@ return {
 
     cmp.setup({
       sources = cmp.config.sources({
-        { name = "copilot" },
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "path" },
-        { name = "buffer" },
-        { name = "spell" },
+        { name = "copilot",  priority = 1000 },
+        { name = "nvim_lsp", priority = 500 },
+        { name = "luasnip",  priority = 500 },
+        { name = "path",     priority = 200 },
+        { name = "path",     priority = 200 },
+        { name = "spell",    priority = 100 },
       }),
       mapping = cmp.mapping.preset.insert({
         ["<c-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
