@@ -78,6 +78,10 @@ function glab_mr_url
   glab mr view $argv[1] -F json | jq .web_url | tr -d '"'
 end
 
+# abbreviation fish
+new_abbr fde "fish_default_key_bindings"
+new_abbr fvi "fish_vi_key_bindings"
+
 # abbreviation github cli
 new_abbr ghv "gh repo view -w"
 new_abbr ghcp "gh repo create --source=. --remote=origin --private"
