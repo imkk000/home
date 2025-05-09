@@ -5,7 +5,6 @@ function make_link -a path out_path
 end
 
 # make symbolic link
-make_link git/gitconfig ~/.gitconfig
 make_link git/gitignore ~/.gitignore
 make_link fish/config.fish ~/.config/fish/config.fish
 
