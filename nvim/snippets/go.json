@@ -1,11 +1,11 @@
 {
   "Import Zerolog": {
     "prefix": "zlimp",
-    "body": "import \"github.com/rs/zerolog\""
+    "body": "import \"github.com/rs/zerolog/log\""
   },
   "Zerolog Error": {
     "prefix": "zlerr",
-    "body": "log${1|.Fatal().Err(err),.Err(err)|}.Msg(\"$0\")"
+    "body": "log.${1|Fatal().Err(err),Warn().Err(err),Err(err)|}.Msg(\"$0\")"
   },
   "Zerolog Debug": {
     "prefix": "zldbg",
@@ -17,6 +17,12 @@
       "if err != nil {\n",
       "\t${0:return err}\n",
       "}"
+    ]
+  },
+  "Context Background": {
+    "prefix": "ctxbg",
+    "body": [
+      "ctx := context.${1|Background,TODO|}()"
     ]
   }
 }

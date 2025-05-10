@@ -17,6 +17,16 @@ return {
     diagnostics = { underline = false },
     autoformat = true,
     servers = {
+      lua_ls = {
+        settings = {
+          Lua = {
+            hint = {
+              enable = true,
+              setType = true,
+            }
+          }
+        },
+      },
       gopls = {
         settings = {
           gopls = {
@@ -92,8 +102,9 @@ return {
       map("hover", "n", "K", vim.lsp.buf.hover, "Hover")
       map("codeAction", "n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
       map("documentSymbol", "n", "gS", tc.lsp_document_symbols, "Document Symbol")
-      map("signatureHelp", "n", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
       map("diagnostics", "n", "gs", tc.diagnostics, "Diagnostics")
+      -- TODO: remap new key
+      -- map("signatureHelp", "n", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
 
       -- format on save
       if util.has(bufnr, "formatting") then

@@ -6,10 +6,8 @@ return {
   config = true,
   keys = {
     -- stylua: ignore
-    { "<leader>sl", function() require('persistence').load() end, desc = " Load Session" },
+    { "<leader>s", function() require('persistence').select() end, desc = " Select Session" },
     -- stylua: ignore
-    { "<leader>ss", function() require('persistence').select() end, desc = " Select Session" },
-    -- stylua: ignore
-    { "<leader>l", function() require('persistence').load({ last = true }) end, desc = " Load Last Session" },
+    { "<leader>l", function() require('persistence').load() end, desc = " Load Session" },
   },
 }

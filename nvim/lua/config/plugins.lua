@@ -8,7 +8,6 @@ local _plugins = {
   },
   lsp = {
     go = "ray-x/go.nvim",
-    markdown_preview = "iamcco/markdown-preview.nvim",
     lazydev = "folke/lazydev.nvim",
     schema_store = "b0o/SchemaStore.nvim",
     lspconfig = "neovim/nvim-lspconfig",

@@ -17,7 +17,6 @@ return {
         { "<leader>k", group = " Gopher" },
         { "<leader>o", group = " Dismiss" },
         { "<leader>q", group = "󰗼 Exit" },
-        { "<leader>s", group = " Search" },
         { "[", group = " Prev" },
         { "]", group = " Next" },
         { "g", group = "󰷕 Goto" },
