@@ -68,6 +68,7 @@ _G.servers = {
       builtins.diagnostics.golangci_lint.with({
         extra_args = {
           "--enable=revive,gosec,misspell",
+          "--allow-parallel-runners",
         },
       }),
     }
