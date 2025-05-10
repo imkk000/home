@@ -165,3 +165,6 @@ function go_new_poc -a mod_name path_name
 
   cd $pwd
 end
+
+# source private config
+source ~/.private-dotfiles/fish/config.fish
