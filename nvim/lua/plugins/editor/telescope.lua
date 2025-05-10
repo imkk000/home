@@ -35,6 +35,7 @@ return {
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = " Recent" },
     { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = " Quickfix" },
     { "<leader>u", "<cmd>Telescope undo<cr>", desc = " Undo" },
+    { "<leader>fk", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = " Buffer Grep" },
   },
   config = function(_, opt)
     require("telescope").setup(opt)

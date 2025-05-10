@@ -41,24 +41,24 @@ _G.servers = {
   sources_null_ls = function()
     local builtins = require("null-ls").builtins
     return {
-      builtins.diagnostics.codespell,
-      builtins.diagnostics.fish,
-      builtins.diagnostics.checkmake,
-      builtins.diagnostics.hadolint,
-      builtins.diagnostics.revive,
-      builtins.diagnostics.buf,
       builtins.code_actions.gomodifytags,
       builtins.code_actions.impl,
+      builtins.completion.spell,
+      builtins.diagnostics.buf,
+      builtins.diagnostics.checkmake,
+      builtins.diagnostics.codespell,
+      builtins.diagnostics.fish,
+      builtins.diagnostics.hadolint,
+      builtins.diagnostics.yamllint,
+      builtins.formatting.buf,
       builtins.formatting.fish_indent,
-      builtins.formatting.shfmt,
-      builtins.formatting.stylua,
-      builtins.formatting.markdownlint,
       builtins.formatting.gofumpt,
       builtins.formatting.goimports,
-      builtins.formatting.buf,
+      builtins.formatting.revive,
+      builtins.formatting.markdownlint,
       builtins.formatting.prettier,
-      builtins.completion.spell,
-      builtins.diagnostics.yamllint,
+      builtins.formatting.shfmt,
+      builtins.formatting.stylua,
       builtins.formatting.golines.with({
         extra_args = {
           "--max-len=180",
@@ -67,8 +67,8 @@ _G.servers = {
       }),
       builtins.diagnostics.golangci_lint.with({
         extra_args = {
-          "--enable=revive,gosec,misspell",
-          "--allow-parallel-runners",
+          "--enable=gosec,revive,misspell",
+          "--allow-parallel-runners=true",
         },
       }),
     }

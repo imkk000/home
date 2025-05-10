@@ -6,7 +6,7 @@ return {
   opts = {
     copy_sync = { enable = false },
     navigation = {
-      cycle_navigation = true,
+      cycle_navigation = false,
       enable_default_keybindings = true,
       persist_zoom = false,
     },
