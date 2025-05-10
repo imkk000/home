@@ -82,9 +82,9 @@ return {
       map("rangeFormatting", "v", "gf", format, "Format")
       map("rename", "n", "gn", vim.lsp.buf.rename, "Rename")
       -- stylua: ignore
-      map("definition", "n", "gD", function() tc.lsp_definitions(tc_opts) end, "Goto Definition")
+      map("definition", "n", "gd", function() tc.lsp_definitions(tc_opts) end, "Goto Definition")
       map("references", "n", "gr", "<cmd>Telescope lsp_references<cr>", "References")
-      map("declaration", "n", "gd", vim.lsp.buf.declaration, "Goto Declaration")
+      map("declaration", "n", "gD", vim.lsp.buf.declaration, "Goto Declaration")
       -- stylua: ignore
       map("implementation", "n", "gi", function() tc.lsp_implementations(tc_opts) end, "Goto Implementation")
       -- stylua: ignore

@@ -61,6 +61,8 @@ local _plugins = {
     spider = "chrisgrieser/nvim-spider",
     rainbow_delimiters = "HiPhish/rainbow-delimiters.nvim",
     spectre = "nvim-pack/nvim-spectre",
+    telescope_undo = "debugloop/telescope-undo.nvim",
+    persistence = "folke/persistence.nvim",
   },
   ui = {
     web_devicons = "nvim-tree/nvim-web-devicons",
