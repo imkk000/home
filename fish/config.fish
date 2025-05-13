@@ -57,7 +57,8 @@ set -a fish_function_path $function_path
 # custom pure themes
 set -U pure_symbol_prompt "󰄛"
 set -U pure_show_system_time false
-set -U pure_shorten_prompt_current_directory_length 1
+set -U pure_shorten_prompt_current_directory_length 2
+set -U pure_reverse_prompt_symbol_in_vimode false
 
 # custom bindings for fzf
 fzf --fish | source
