@@ -1,7 +1,7 @@
 {
   "Import Zerolog": {
     "prefix": "zlimp",
-    "body": "import \"github.com/rs/zerolog/log\""
+    "body": "${1|,import |}\"github.com/rs/zerolog/log\""
   },
   "Zerolog Error": {
     "prefix": "zlerr",

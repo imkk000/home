@@ -9,6 +9,11 @@ return {
       plugins.editor.repo_telescope_undo,
       name = plugins.editor.telescope_undo,
     },
+    {
+      -- Plugin: https://github.com/debugloop/telescope-undo.nvim
+      plugins.editor.repo_telescope_luasnip,
+      name = plugins.editor.telescope_luasnip,
+    }
   },
   cmd = "Telescope",
   opts = {
@@ -34,11 +39,13 @@ return {
     { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = " Live Grep" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = " Recent" },
     { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = " Quickfix" },
-    { "<leader>u", "<cmd>Telescope undo<cr>", desc = " Undo" },
     { "<leader>fk", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = " Buffer Grep" },
+    { "<leader>fl", "<cmd>Telescope luasnip<cr>", desc = " Luasnip" },
+    { "<leader>u", "<cmd>Telescope undo<cr>", desc = " Undo" },
   },
   config = function(_, opt)
     require("telescope").setup(opt)
     require("telescope").load_extension("undo")
+    require("telescope").load_extension("luasnip")
   end,
 }
