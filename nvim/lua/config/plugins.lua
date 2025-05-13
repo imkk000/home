@@ -61,6 +61,7 @@ local _plugins = {
     rainbow_delimiters = "HiPhish/rainbow-delimiters.nvim",
     spectre = "nvim-pack/nvim-spectre",
     telescope_undo = "debugloop/telescope-undo.nvim",
+    telescope_luasnip = "benfowler/telescope-luasnip.nvim",
     persistence = "folke/persistence.nvim",
   },
   ui = {

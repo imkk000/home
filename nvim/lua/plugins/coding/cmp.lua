@@ -64,7 +64,10 @@ return {
 
     require("luasnip.loaders.from_vscode").lazy_load()
     require("luasnip.loaders.from_vscode").load({
-      paths = { "~/.config/nvim/snippets" },
+      paths = {
+        "~/.config/nvim/snippets",
+        "~/.private-dotfiles/nvim/snippets"
+      },
     })
 
     local opts = { silent = true, noremap = true }
@@ -75,6 +78,11 @@ return {
     vim.keymap.set({ "i", "s" }, "<c-e>", function()
       if ls.choice_active() then
         ls.change_choice(1)
+      end
+    end, opts)
+    vim.keymap.set({ "i", "s" }, "<c-s-e>", function()
+      if ls.choice_active() then
+        ls.change_choice(-1)
       end
     end, opts)
 
