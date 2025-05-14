@@ -6,7 +6,12 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   opts = function()
     return {
-      diagnostic_config = { underline = false },
+      diagnostics_format = "#{m} (#{s})",
+      diagnostic_config = {
+        virtual_text = true,
+        underline = false,
+        signs = true,
+      },
       sources = servers.sources_null_ls(),
     }
   end,

@@ -23,8 +23,8 @@ return {
             hint = {
               enable = true,
               setType = true,
-            }
-          }
+            },
+          },
         },
       },
       gopls = {
@@ -76,7 +76,10 @@ return {
     local config = require("lspconfig")
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities = cmp_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
+      -- disable builtin completion
+      vim.lsp.completion.enable(false, client.id, bufnr)
+
       local buf_opts = { silent = true, noremap = true, buffer = bufnr }
       local tc = require("telescope.builtin")
       local tc_opts = { reuse_window = true }
@@ -85,7 +88,7 @@ return {
         util.map(buf_opts, ...)
       end
       local format = function()
-        vim.lsp.buf.format({ timeout_ms = 10000, aysnc = false, bufnr = bufnr })
+        vim.lsp.buf.format({ timeout_ms = 10000, async = false, bufnr = bufnr })
       end
 
       map("formatting", "n", "gf", format, "Format")
@@ -103,8 +106,7 @@ return {
       map("codeAction", "n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
       map("documentSymbol", "n", "gS", tc.lsp_document_symbols, "Document Symbol")
       map("diagnostics", "n", "gs", tc.diagnostics, "Diagnostics")
-      -- TODO: remap new key
-      -- map("signatureHelp", "n", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
+      map("signatureHelp", "i", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
 
       -- format on save
       if util.has(bufnr, "formatting") then

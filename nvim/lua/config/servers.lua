@@ -54,7 +54,6 @@ _G.servers = {
       builtins.formatting.fish_indent,
       builtins.formatting.gofumpt,
       builtins.formatting.goimports,
-      builtins.formatting.revive,
       builtins.formatting.markdownlint,
       builtins.formatting.prettier,
       builtins.formatting.shfmt,
@@ -66,10 +65,7 @@ _G.servers = {
         },
       }),
       builtins.diagnostics.golangci_lint.with({
-        extra_args = {
-          "--enable=gosec,revive,misspell",
-          "--allow-parallel-runners=true",
-        },
+        args = { "run", "--config", "~/.config/nvim/linters/golangci.yaml" },
       }),
     }
   end,

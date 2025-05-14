@@ -1,0 +1,64 @@
+---
+version: 2
+linters:
+  enable:
+    - errcheck
+    - ineffassign
+    - govet
+    - staticcheck
+    - unused
+    - revive
+    - misspell
+    - gosec
+    - godox
+    - bodyclose
+    - forbidigo
+    - asasalint
+    - copyloopvar
+    - funcorder
+    - gochecknoinits
+    - goconst
+    - errorlint
+    - gomoddirectives
+    - makezero
+    - nilerr
+    - paralleltest
+    - perfsprint
+    - prealloc
+    - predeclared
+    - protogetter
+    - reassign
+    - sloglint
+    - tagalign
+    - tagliatelle
+    - testifylint
+    - testpackage
+    - unconvert
+    - unparam
+    - whitespace
+    - wsl
+    - zerologlint
+  settings:
+    gomoddirectives:
+      replace-local: true
+      retract-allow-no-explanation: true
+      exclude-forbidden: true
+      toolchain-forbidden: true
+      tool-forbidden: true
+      go-debug-forbidden: true
+      go-version-pattern: '1.24(\.0)?'
+    godox:
+      keywords: ["TODO", "BUG", "FIXME", "NOTE"]
+    revive:
+      enable-all-rules: true
+      rules:
+        - name: exported
+          disabled: true
+output:
+  show-stats: false
+  formats:
+    json:
+      path: stdout
+run:
+  relative-path-mode: gomod
+  allow-parallel-runners: true
