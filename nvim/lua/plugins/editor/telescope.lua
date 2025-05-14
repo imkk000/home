@@ -13,11 +13,14 @@ return {
       -- Plugin: https://github.com/debugloop/telescope-undo.nvim
       plugins.editor.repo_telescope_luasnip,
       name = plugins.editor.telescope_luasnip,
-    }
+    },
   },
   cmd = "Telescope",
   opts = {
     defaults = {
+      file_ignore_patterns = {
+        "mocks/",
+      },
       mappings = {
         n = {
           q = function(...)

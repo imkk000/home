@@ -66,7 +66,7 @@ return {
     require("luasnip.loaders.from_vscode").load({
       paths = {
         "~/.config/nvim/snippets",
-        "~/.private-dotfiles/nvim/snippets"
+        "~/.private-dotfiles/nvim/snippets",
       },
     })
 
@@ -92,7 +92,7 @@ return {
         { name = "nvim_lsp", priority = 500 },
         { name = "luasnip",  priority = 500 },
         { name = "path",     priority = 200 },
-        { name = "path",     priority = 200 },
+        { name = "cmdline",  priority = 200 },
         { name = "spell",    priority = 100 },
       }),
       mapping = cmp.mapping.preset.insert({

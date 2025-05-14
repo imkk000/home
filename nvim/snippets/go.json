@@ -8,8 +8,8 @@
     "body": "log.${1|Fatal().Err(err),Warn().Err(err),Err(err)|}.Msg(\"$0\")"
   },
   "Zerolog Debug": {
-    "prefix": "zldbg",
-    "body": "log.Debug().Msg(\"$0\")"
+    "prefix": "zllog",
+    "body": "log.${1|Debug,Info|}().Msg(\"$0\")"
   },
   "If Error": {
     "prefix": "iferr",

@@ -63,6 +63,7 @@ local _plugins = {
     telescope_undo = "debugloop/telescope-undo.nvim",
     telescope_luasnip = "benfowler/telescope-luasnip.nvim",
     persistence = "folke/persistence.nvim",
+    trim = "cappyzawa/trim.nvim",
   },
   ui = {
     web_devicons = "nvim-tree/nvim-web-devicons",
