@@ -11,9 +11,12 @@ return {
     plugins.ui.window_picker,
   },
   keys = {
-    { "<leader>e", "<cmd>Neotree toggle source=last<cr>", desc = " Neo Tree" },
+    { "<leader>e", "<cmd>Neotree toggle filesystem reveal<cr>", desc = " Neo Tree" },
   },
   opts = {
+    filters = {
+      dotfiles = false,
+    },
     sources = {
       "filesystem",
       "buffers",
@@ -23,6 +26,16 @@ return {
     source_selector = { statusline = true },
     filesystem = {
       use_libuv_file_watcher = true,
+      filtered_items = {
+        always_show_by_pattern = {
+          ".mockery*",
+          ".golangci*",
+          ".gitlab*",
+          ".env*",
+          ".gitignore*",
+          "script*",
+        },
+      },
     },
     popup_border_style = "single",
     default_component_configs = {
