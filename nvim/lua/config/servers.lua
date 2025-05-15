@@ -66,7 +66,13 @@ _G.servers = {
         },
       }),
       builtins.diagnostics.golangci_lint.with({
-        args = { "run", "--config", "~/.config/nvim/linters/golangci.yaml" },
+        args = {
+          "run",
+          "--output.json.path",
+          "stdout",
+          "--config",
+          "~/.config/nvim/linters/golangci.yaml",
+        },
       }),
     }
   end,

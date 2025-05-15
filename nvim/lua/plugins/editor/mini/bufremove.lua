@@ -7,11 +7,11 @@ return {
   end,
   keys = {
     {
-      "<leader>bd",
+      "<leader>b",
       function()
         require("mini.bufremove").delete(0, false)
       end,
-      desc = "󰺝 Delete",
+      desc = " Buffer Delete",
     },
   },
 }

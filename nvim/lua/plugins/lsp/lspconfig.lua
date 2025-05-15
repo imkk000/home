@@ -107,6 +107,9 @@ return {
       map("documentSymbol", "n", "gS", tc.lsp_document_symbols, "Document Symbol")
       map("diagnostics", "n", "gs", tc.diagnostics, "Diagnostics")
       map("signatureHelp", "i", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
+      map("inlayHint", "n", "<leader>ki", function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+      end, "Inlay Hints")
 
       -- format on save
       if util.has(bufnr, "formatting") then

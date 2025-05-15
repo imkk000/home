@@ -10,12 +10,10 @@ return {
       {
         mode = { "n", "v" },
         { "<leader>b", group = " Buffer" },
-        { "<leader>c", group = "󰨽 Code" },
         { "<leader>d", group = " Dap" },
         { "<leader>f", group = "󰮗 Find" },
         { "<leader>g", group = " Git" },
-        { "<leader>k", group = " Gopher" },
-        { "<leader>o", group = " Dismiss" },
+        { "<leader>c", group = "󰨽 Code" },
         { "<leader>q", group = "󰗼 Exit" },
         { "[", group = " Prev" },
         { "]", group = " Next" },

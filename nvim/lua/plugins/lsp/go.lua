@@ -32,10 +32,6 @@ return {
     local go = require("go")
     go.setup(opts)
 
-    opt.desc = " Toggle Inlay"
-    vim.keymap.set("n", "<leader>ki", function()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-    end, opt)
     opt.desc = " GoTestFunc"
     vim.keymap.set("n", "<leader>kf", "<cmd>GoTestFunc<cr>", opt)
     opt.desc = " GoTestFile"

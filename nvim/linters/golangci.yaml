@@ -56,9 +56,6 @@ linters:
           disabled: true
 output:
   show-stats: false
-  formats:
-    json:
-      path: stdout
 run:
   relative-path-mode: gomod
   allow-parallel-runners: true
