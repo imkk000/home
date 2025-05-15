@@ -9,11 +9,11 @@ return {
   },
   keys = {
     {
-      "<leader>on",
+      "<leader>o",
       function()
         require("notify").dismiss({ silent = true, pending = true })
       end,
-      desc = "Dismiss All Notifications",
+      desc = " Dismiss Notifications",
     },
   },
 }

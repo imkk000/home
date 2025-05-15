@@ -72,7 +72,7 @@ return {
 
     local opts = { silent = true, noremap = true }
     -- stylua: ignore start
-    vim.keymap.set({ "i" }, "<c-k>", function() ls.expand() end, opts)
+    vim.keymap.set({ "i" }, "<c-k>", function() ls.expand({}) end, opts)
     vim.keymap.set({ "i", "s" }, "<c-l>", function() ls.jump(1) end, opts)
     vim.keymap.set({ "i", "s" }, "<c-h>", function() ls.jump(-1) end, opts)
     vim.keymap.set({ "i", "s" }, "<c-e>", function()
@@ -86,13 +86,24 @@ return {
       end
     end, opts)
 
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      }
+    })
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({ { name = "path" } },
+        { { name = "cmdline", option = { ignore_cmds = { "Man", "!" } } } })
+    })
+
     cmp.setup({
       sources = cmp.config.sources({
         { name = "copilot",  priority = 1000 },
         { name = "nvim_lsp", priority = 500 },
         { name = "luasnip",  priority = 500 },
         { name = "path",     priority = 200 },
-        { name = "cmdline",  priority = 200 },
         { name = "spell",    priority = 100 },
       }),
       mapping = cmp.mapping.preset.insert({
