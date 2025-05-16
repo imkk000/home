@@ -62,7 +62,7 @@ set -U pure_reverse_prompt_symbol_in_vimode false
 
 # custom bindings for fzf
 fzf --fish | source
-fzf_configure_bindings --history=\cr --directory=\cf --variables= --processes= --git_log= --git_status=\cg
+fzf_configure_bindings --history=\cr --directory=\cf --git_status=\cg --git_log=\e\cg --variables= --processes=
 
 # abbreviation last history
 function last_history_item
