@@ -109,7 +109,12 @@ return {
       map("signatureHelp", "i", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
       map("inlayHint", "n", "<leader>ki", function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-      end, "Inlay Hints")
+        vim.notify("Inlayhint: " .. tostring(vim.lsp.inlay_hint.is_enabled()), vim.log.levels.INFO)
+      end, "Toggle Inlay Hints")
+      map("diagnostics", "n", "<leader>kd", function()
+        vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+        vim.notify("Diagnostic: " .. tostring(vim.diagnostic.is_enabled()), vim.log.levels.INFO)
+      end, "Toggle Diagnostics")
 
       -- format on save
       if util.has(bufnr, "formatting") then

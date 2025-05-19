@@ -54,6 +54,12 @@ linters:
       rules:
         - name: exported
           disabled: true
+    wsl:
+      allow-assign-and-anything: true
+      allow-cuddle-used-in-block: true
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
 output:
   show-stats: false
 run:
