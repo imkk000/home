@@ -19,7 +19,7 @@ function only_linux
     fish_add_path /home/kk/.spicetify
 
     # alias
-    alias cat="batcat"
+    alias cat="bat"
     alias pbcopy="xsel -b --input"
     alias pbpaste="xsel -b --output"
 end
@@ -50,9 +50,10 @@ end
 # common
 set -Ux EDITOR nvim
 set -U fish_greeting ""
-set -U nvm_default_version v23.11.0
-set -U function_path ~/.private-dotfiles/fish/functions
+set -U nvm_default_version v24.1.0
+set -U function_path ~/.private-home/fish/functions
 set -a fish_function_path $function_path
+set -Ux LC_ALL "en_US.UTF-8"
 
 # custom pure themes
 set -U pure_symbol_prompt "󰄛"
@@ -79,9 +80,16 @@ function glab_mr_url
   glab mr view $argv[1] -F json | jq .web_url | tr -d '"'
 end
 
-# abbreviation fish
-new_abbr fde "fish_default_key_bindings"
-new_abbr fvi "fish_vi_key_bindings"
+# abbreviation key bindings
+function toggle_key_bindings
+switch $fish_key_bindings
+    case fish_default_key_bindings
+        fish_vi_key_bindings
+    case '*'
+        fish_default_key_bindings
+    end
+end
+alias ff=toggle_key_bindings
 
 # abbreviation github cli
 new_abbr ghv "gh repo view -w"
@@ -162,10 +170,8 @@ function go_new_poc -a mod_name path_name
   echo -e "package main\n\nimport \"github.com/rs/zerolog/log\"\n\nfunc main() {\n\tlog.Debug().Msg(\"\")\n}\n" > main.go
 
   git init
-  git config user.email nattakit.boonyang@gmail.com
-
   cd $pwd
 end
 
 # source private config
-source ~/.private-dotfiles/fish/config.fish
+source ~/.private-home/fish/config.fish
