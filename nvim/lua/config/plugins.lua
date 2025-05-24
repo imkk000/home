@@ -65,6 +65,7 @@ local _plugins = {
     persistence = "folke/persistence.nvim",
     trim = "cappyzawa/trim.nvim",
     diffview = "sindrets/diffview.nvim",
+    zen_mode = "folke/zen-mode.nvim",
   },
   ui = {
     web_devicons = "nvim-tree/nvim-web-devicons",
