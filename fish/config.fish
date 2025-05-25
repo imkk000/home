@@ -59,18 +59,42 @@ set -U pure_shorten_prompt_current_directory_length 2
 set -U pure_reverse_prompt_symbol_in_vimode false
 
 function fish_prompt
+  # show git branch
   set -l git_branch (git branch --show-current 2>/dev/null)
   if test -n "$git_branch"
-    set git_branch (string join '' -- (set_color brred) " br($git_branch)" (set_color normal))
+    set git_branch (string join '' -- (set_color -o brred) " br($git_branch)" (set_color normal))
   end
+
+  # show go module
   if test (go list -m) != "command-line-arguments"
     set -l go_version (go list -m -json | jq -r ".GoVersion, .Path")
     set go (string join '' -- (set_color brgreen) " go[$go_version]" (set_color normal))
   end
 
   set -l prompt (prompt_pwd --full-length-dirs=2 --dir-length=2)
-  echo (set_color brblue)"$prompt"(set_color normal)"$git_branch$go"
+  echo (set_color brblue)" $prompt"(set_color normal)"$git_branch$go"
   echo (set_color yellow)">" (set_color normal)
+end
+
+function fish_mode_prompt
+  switch $fish_bind_mode
+    case default
+      set_color --bold red
+      echo -n 'N'
+    case insert
+      set_color --bold green
+      echo -n 'I'
+    case replace_one
+      set_color --bold green
+      echo -n 'R'
+    case visual
+      set_color --bold brmagenta
+      echo -n 'V'
+    case '*'
+      set_color --bold red
+      echo -n '?'
+  end
+  set_color normal
 end
 
 # custom bindings for fzf
@@ -95,8 +119,8 @@ end
 # abbreviation key bindings
 function toggle_key_bindings
 switch $fish_key_bindings
-    case fish_default_key_bindings
-      fish_vi_key_bindings
+    case fish_hybrid_key_bindings
+      fish_default_key_bindings
     case '*'
       fish_hybrid_key_bindings
     end
