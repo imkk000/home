@@ -25,8 +25,6 @@ function only_linux
 end
 
 function only_darwin
-    # iterm2 shell integration
-    source $HOME/.iterm2_shell_integration.fish
     set -x BROWSER open
     set -x HOMEBREW_NO_ANALYTICS 1
     # path
@@ -34,7 +32,6 @@ function only_darwin
 
     # alias
     alias cat="bat"
-    alias ff="open -a Firefox -n"
 
     if [ -f "$HOME/.google-cloud-sdk/path.fish.inc" ]; . "$HOME/.google-cloud-sdk/path.fish.inc"; end
 end
@@ -61,6 +58,21 @@ set -U pure_show_system_time false
 set -U pure_shorten_prompt_current_directory_length 2
 set -U pure_reverse_prompt_symbol_in_vimode false
 
+function fish_prompt
+  set -l git_branch (git branch --show-current 2>/dev/null)
+  if test -n "$git_branch"
+    set git_branch (string join '' -- (set_color brred) " br($git_branch)" (set_color normal))
+  end
+  if test (go list -m) != "command-line-arguments"
+    set -l go_version (go list -m -json | jq -r ".GoVersion, .Path")
+    set go (string join '' -- (set_color brgreen) " go[$go_version]" (set_color normal))
+  end
+
+  set -l prompt (prompt_pwd --full-length-dirs=2 --dir-length=2)
+  echo (set_color brblue)"$prompt"(set_color normal)"$git_branch$go"
+  echo (set_color yellow)">" (set_color normal)
+end
+
 # custom bindings for fzf
 fzf --fish | source
 fzf_configure_bindings --history=\cr --directory=\cf --git_status=\cg --git_log=\e\cg --variables= --processes=
@@ -84,9 +96,9 @@ end
 function toggle_key_bindings
 switch $fish_key_bindings
     case fish_default_key_bindings
-        fish_vi_key_bindings
+      fish_vi_key_bindings
     case '*'
-        fish_default_key_bindings
+      fish_hybrid_key_bindings
     end
 end
 alias ff=toggle_key_bindings
