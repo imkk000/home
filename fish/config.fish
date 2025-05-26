@@ -68,31 +68,37 @@ function fish_prompt
   # show go module
   if test (go list -m) != "command-line-arguments"
     set -l go_version (go list -m -json | jq -r ".GoVersion, .Path")
-    set go (string join '' -- (set_color brgreen) " go[$go_version]" (set_color normal))
+    set go (string join '' -- (set_color -i brgreen) " go[$go_version]" (set_color normal))
   end
 
-  set -l prompt (prompt_pwd --full-length-dirs=2 --dir-length=2)
-  echo (set_color brblue)" $prompt"(set_color normal)"$git_branch$go"
-  echo (set_color yellow)">" (set_color normal)
+  set -l pwd (prompt_pwd --full-length-dirs=3 --dir-length=2)
+  set -l dir (path dirname $pwd)
+  set -l path (path basename $pwd)
+
+  string join '' -- (set_color brblue) "$dir" (set_color -oi bryellow) " $path" (set_color normal) "$git_branch" "$go"
+  string join '' -- (set_color yellow) "󱞪 " (set_color normal)
+end
+
+function fish_right_prompt
 end
 
 function fish_mode_prompt
   switch $fish_bind_mode
     case default
-      set_color --bold red
-      echo -n 'N'
+      set_color -o red
+      echo '[N] '
     case insert
-      set_color --bold green
-      echo -n 'I'
+      set_color -o green
+      echo '[I] '
     case replace_one
-      set_color --bold green
-      echo -n 'R'
+      set_color -o green
+      echo '[R] '
     case visual
-      set_color --bold brmagenta
-      echo -n 'V'
-    case '*'
-      set_color --bold red
-      echo -n '?'
+      set_color -o brmagenta
+      echo '[V] '
+    case '[*] '
+      set_color -o red
+      echo '[?] '
   end
   set_color normal
 end
@@ -163,20 +169,25 @@ new_abbr dkl "docker logs -f"
 function new_abbr_go
   new_abbr go$argv[1] "go get -u $argv[2]"
 end
-new_abbr_go zerolog "github.com/rs/zerolog"
-new_abbr_go testify "github.com/stretchr/testify"
-new_abbr_go gin "github.com/gin-gonic/gin"
-new_abbr_go echo "github.com/labstack/echo/v4"
-new_abbr_go fiber "github.com/gofiber/fiber/v2"
-new_abbr_go fasthttp "github.com/valyala/fasthttp"
-new_abbr_go kafka "github.com/confluentinc/confluent-kafka-go/v2"
 new_abbr_go dotenv "github.com/joho/godotenv"
+new_abbr_go echo "github.com/labstack/echo/v4"
 new_abbr_go envconfig "github.com/kelseyhightower/envconfig"
-new_abbr_go mongo "go.mongodb.org/mongo-driver/mongo"
-new_abbr_go resty "github.com/go-resty/resty/v2"
+new_abbr_go fasthttp "github.com/valyala/fasthttp"
+new_abbr_go fiber "github.com/gofiber/fiber/v2"
+new_abbr_go gin "github.com/gin-gonic/gin"
+new_abbr_go git "github.com/go-git/go-git/v5"
+new_abbr_go gitlab "gitlab.com/gitlab-org/api/client-go"
 new_abbr_go goquery "github.com/PuerkitoBio/goquery"
-new_abbr_go websocket "github.com/gorilla/websocket"
+new_abbr_go kafka "github.com/confluentinc/confluent-kafka-go/v2"
+new_abbr_go mongo "go.mongodb.org/mongo-driver/mongo/v2"
+new_abbr_go mongo1 "go.mongodb.org/mongo-driver/mongo"
 new_abbr_go redis "github.com/redis/rueidis"
+new_abbr_go resty "github.com/go-resty/resty/v2"
+new_abbr_go testify "github.com/stretchr/testify"
+new_abbr_go websocket "github.com/gorilla/websocket"
+new_abbr_go zerolog "github.com/rs/zerolog"
+new_abbr_go color "github.com/fatih/color"
+new_abbr_go yaml "gopkg.in/yaml.v3"
 
 # abbreviation path
 new_abbr "..." "../.."
@@ -184,6 +195,11 @@ new_abbr "...." "../../.."
 new_abbr "....." "../../../.."
 new_abbr "......" "../../../../.."
 new_abbr "......." "../../../../../.."
+new_abbr "........" "../../../../../../.."
+new_abbr "........." "../../../../../../../.."
+new_abbr ".........." "../../../../../../../../.."
+new_abbr "..........." "../../../../../../../../../.."
+new_abbr "............" "../../../../../../../../../../.."
 
 function go_new_poc -a mod_name path_name
   set -l pwd $PWD

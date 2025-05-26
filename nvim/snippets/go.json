@@ -24,5 +24,15 @@
     "body": [
       "ctx := context.${1|Background,TODO|}()"
     ]
+  },
+  "Marshal JSON": {
+    "prefix": "jsonm",
+    "body": [
+      "content, err := json.Marshal($1)",
+      "if err != nil {",
+      "\tlog.Fatal().Err(err).Msg(\"marshal\")",
+      "}",
+      "fmt.Println(string(content))"
+    ]
   }
 }
