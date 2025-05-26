@@ -54,12 +54,6 @@ set -U function_path ~/.private-home/fish/functions
 set -a fish_function_path $function_path
 set -Ux LC_ALL "en_US.UTF-8"
 
-# custom pure themes
-set -U pure_symbol_prompt "󰄛"
-set -U pure_show_system_time false
-set -U pure_shorten_prompt_current_directory_length 2
-set -U pure_reverse_prompt_symbol_in_vimode false
-
 function fish_prompt
   # show git branch
   set -l git_branch (git branch --show-current 2>/dev/null)
@@ -76,8 +70,12 @@ function fish_prompt
   set -l pwd (prompt_pwd --full-length-dirs=3 --dir-length=2)
   set -l dir (path dirname $pwd)
   set -l path (path basename $pwd)
-
-  string join '' -- (set_color brblue) "$dir" (set_color -oi bryellow) " $path" (set_color normal) "$git_branch" "$go"
+  set -l name (whoami)
+  switch $name
+    case nattakit.b
+      set name NB
+  end
+  string join '' -- "$name" (set_color brblue) " $dir" (set_color -oi bryellow) " $path" (set_color normal) "$git_branch" "$go"
   string join '' -- (set_color yellow) "󱞪 " (set_color normal)
 end
 
