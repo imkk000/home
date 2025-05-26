@@ -4,6 +4,7 @@ return {
   name = plugins.editor.telescope,
   dependencies = {
     plugins.ui.plenary,
+    plugins.editor.bookmarks,
     {
       -- Plugin: https://github.com/debugloop/telescope-undo.nvim
       plugins.editor.repo_telescope_undo,
@@ -37,7 +38,7 @@ return {
   },
   keys = {
     { "gb", "<cmd>Telescope buffers<cr>", desc = " Buffers" },
-    { "'", "<cmd>Telescope marks<cr>", desc = " Marks" },
+    { "<leader>fm", "<cmd>Telescope bookmarks list<cr>", desc = " Bookmarks" },
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = " Files" },
     { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = " Live Grep" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = " Recent" },
@@ -50,5 +51,6 @@ return {
     require("telescope").setup(opt)
     require("telescope").load_extension("undo")
     require("telescope").load_extension("luasnip")
+    require("telescope").load_extension("bookmarks")
   end,
 }

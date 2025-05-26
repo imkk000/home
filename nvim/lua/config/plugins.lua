@@ -64,8 +64,7 @@ local _plugins = {
     telescope_luasnip = "benfowler/telescope-luasnip.nvim",
     persistence = "folke/persistence.nvim",
     trim = "cappyzawa/trim.nvim",
-    diffview = "sindrets/diffview.nvim",
-    zen_mode = "folke/zen-mode.nvim",
+    bookmarks = "tomasky/bookmarks.nvim",
   },
   ui = {
     web_devicons = "nvim-tree/nvim-web-devicons",

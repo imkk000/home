@@ -15,6 +15,8 @@ alias v="nvim"
 alias vv="nvim ."
 alias python="python3"
 
+zoxide init fish | source
+
 function only_linux
     fish_add_path /home/kk/.spicetify
 
