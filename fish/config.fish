@@ -61,16 +61,10 @@ function fish_prompt
     set git_branch (string join '' -- (set_color -o brred) " br($git_branch)" (set_color normal))
   end
 
-  # show go module
-  if test (go list -m) != "command-line-arguments"
-    set -l go_version (go list -m -json | jq -r ".GoVersion, .Path")
-    set go (string join '' -- (set_color -i brgreen) " go[$go_version]" (set_color normal))
-  end
-
   set -l pwd (prompt_pwd --full-length-dirs=3 --dir-length=2)
   set -l dir (path dirname $pwd)
   set -l path (path basename $pwd)
-  set -l name (whoami)
+  set -l name (string upper (whoami))
   switch $name
     case nattakit.b
       set name NB
