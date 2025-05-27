@@ -55,12 +55,8 @@ set -a fish_function_path $function_path
 set -Ux LC_ALL "en_US.UTF-8"
 
 function fish_prompt
-  # show git branch
-  set -l git_branch (git branch --show-current 2>/dev/null)
-  if test -n "$git_branch"
-    set git_branch (string join '' -- (set_color -o brred) " br($git_branch)" (set_color normal))
-  end
-
+  set -l go ""
+  set -l git_branch ""
   set -l pwd (prompt_pwd --full-length-dirs=3 --dir-length=2)
   set -l dir (path dirname $pwd)
   set -l path (path basename $pwd)
@@ -69,8 +65,32 @@ function fish_prompt
     case nattakit.b
       set name NB
   end
-  string join '' -- "$name" (set_color brblue) " $dir" (set_color -oi bryellow) " $path" (set_color normal) "$git_branch" "$go"
-  string join '' -- (set_color yellow) "󱞪 " (set_color normal)
+
+  # show git branch
+  if command -v git >/dev/null 2>&1
+    set git_branch (git branch --show-current 2>/dev/null)
+    if test -n "$git_branch"
+      set git_branch (string join "" -- "(" $git_branch ")")
+    end
+  end
+
+  # show go version
+  if test -f "go.mod"
+    if command -v go >/dev/null 2>&1
+      and command -v jq >/dev/null 2>&1
+      set -l go_version (go mod edit -json | jq -r ".Go")
+      set -l go_module (go mod edit -json | jq -r '.Module.Path')
+      set go (string join "" -- "[" $go_module "@" $go_version "]")
+    end
+  end
+
+  string join "" -- \
+    (set_color -o cc6699) "$name" (set_color normal) \
+    (set_color brblue) " $dir" (set_color normal) \
+    (set_color -oi ffa600) " $path" (set_color normal) \
+    (set_color -o 99e6ff) " $git_branch" (set_color normal) \
+    (set_color -o ffff4d) " $go" (set_color normal) \n \
+    (set_color -o 999999) "\$> " (set_color normal)
 end
 
 function fish_right_prompt
@@ -79,16 +99,16 @@ end
 function fish_mode_prompt
   switch $fish_bind_mode
     case default
-      set_color -o red
+      set_color -o 99ff66
       echo '[N] '
     case insert
-      set_color -o green
+      set_color -o ffff00
       echo '[I] '
     case replace_one
-      set_color -o green
+      set_color -o e6eeff
       echo '[R] '
     case visual
-      set_color -o brmagenta
+      set_color -o e6eeff
       echo '[V] '
     case '[*] '
       set_color -o red
@@ -102,22 +122,18 @@ fzf --fish | source
 fzf_configure_bindings --history=\cr --directory=\cf --git_status=\cg --git_log=\e\cg --variables= --processes=
 
 # abbreviation last history
-function last_history_item
+function _last_history_item
     echo $history[1]
 end
-abbr --add !! --position anywhere --function last_history_item
+abbr --add !! --position anywhere --function _last_history_item
 
-# often use
-function new_abbr
-    abbr --add $argv[1] --position anywhere $argv[2]
-end
-
-function glab_mr_url
+function _glab_mr_url
   glab mr view $argv[1] -F json | jq .web_url | tr -d '"'
 end
+alias glu=_glab_mr_url
 
 # abbreviation key bindings
-function toggle_key_bindings
+function _toggle_key_bindings
 switch $fish_key_bindings
     case fish_hybrid_key_bindings
       fish_default_key_bindings
@@ -125,7 +141,12 @@ switch $fish_key_bindings
       fish_hybrid_key_bindings
     end
 end
-alias ff=toggle_key_bindings
+alias ff=_toggle_key_bindings
+
+# often use
+function new_abbr
+    abbr --add $argv[1] --position anywhere $argv[2]
+end
 
 # abbreviation github cli
 new_abbr ghv "gh repo view -w"
