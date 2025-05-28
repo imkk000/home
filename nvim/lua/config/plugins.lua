@@ -35,6 +35,7 @@ local _plugins = {
     },
     treesitter = "nvim-treesitter/nvim-treesitter",
     treesitter_textobject = "nvim-treesitter/nvim-treesitter-textobjects",
+    treesitter_context = "nvim-treesitter/nvim-treesitter-context",
     autotag = "windwp/nvim-ts-autotag",
     autopairs = "windwp/nvim-autopairs",
   },

@@ -10,6 +10,11 @@ return {
       plugins.coding.repo_treesitter_textobject,
       name = plugins.coding.treesitter_textobject,
     },
+    {
+      -- Plugin: https://github.com/nvim-treesitter/nvim-treesitter-context
+      plugins.coding.repo_treesitter_context,
+      name = plugins.coding.treesitter_context,
+    },
   },
   opts = {
     ensure_installed = "all",
@@ -18,7 +23,13 @@ return {
       disable = {},
       additional_vim_regex_highlighting = false,
     },
-    incremental_selection = { enable = false },
+    incremental_selection = {
+      enable = true,
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
     textobjects = {
       lsp_interop = { enable = false },
       select = {
