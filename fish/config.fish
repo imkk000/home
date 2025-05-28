@@ -60,10 +60,12 @@ function fish_prompt
   set -l pwd (prompt_pwd --full-length-dirs=3 --dir-length=2)
   set -l dir (path dirname $pwd)
   set -l path (path basename $pwd)
-  set -l name (string upper (whoami))
+  set -l name (whoami)
   switch $name
     case nattakit.b
       set name NB
+    case "*"
+      set name (string upper $name)
   end
 
   # show git branch
