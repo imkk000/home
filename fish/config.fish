@@ -152,19 +152,19 @@ end
 
 # abbreviation github cli
 new_abbr ghv "gh repo view -w"
-new_abbr ghcp "gh repo create --source=. --remote=origin --private"
-new_abbr ghcu "gh repo create --source=. --remote=origin --public"
+new_abbr ghcr "gh repo create --source=. --remote=origin"
 new_abbr glv "glab repo view -w"
 new_abbr glmc "glab mr create --remove-source-branch --squash-before-merge --target-branch="
 new_abbr glmcm "glab mr create --remove-source-branch --squash-before-merge --target-branch=main"
 new_abbr glmcd "glab mr create --remove-source-branch --squash-before-merge --target-branch=develop"
 new_abbr glmcf "glab mr create --remove-source-branch --squash-before-merge --target-branch=features"
+new_abbr gls "git log HEAD -1 --pretty=format:'%s'"
+
 abbr --erase gup
 
 # abbreviation git
 new_abbr gds "git diff --staged"
 new_abbr grsh "git reset --soft HEAD^"
-new_abbr gcue "git config user.email nattakit.boonyang@gmail.com"
 new_abbr glrd "git pull --rebase origin develop"
 new_abbr glrm "git pull --rebase origin main"
 
