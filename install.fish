@@ -10,7 +10,3 @@ end
 make_link git/gitignore ~/.gitignore
 make_link fish/config.fish ~/.config/fish/config.fish
 make_link tmux/tmux.conf ~/.tmux.conf
-
-# set go
-go telemetry off
-go env -w GOPATH=$HOME/.go

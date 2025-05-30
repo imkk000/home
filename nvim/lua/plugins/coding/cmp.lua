@@ -27,11 +27,6 @@ return {
       name = plugins.coding.completion.sources.path_cmp,
     },
     {
-      -- Plugin: https://github.com/hrsh7th/cmp-cmdline
-      plugins.coding.completion.sources.repo_cmdline_cmp,
-      name = plugins.coding.completion.sources.cmdline_cmp,
-    },
-    {
       -- Plugin: https://github.com/f3fora/cmp-spell
       plugins.coding.completion.sources.repo_spell_cmp,
       name = plugins.coding.completion.sources.spell_cmp,
@@ -92,17 +87,12 @@ return {
         { name = 'buffer' }
       }
     })
-    cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({ { name = "path" } },
-        { { name = "cmdline", option = { ignore_cmds = { "Man", "!" } } } })
-    })
 
     cmp.setup({
       sources = cmp.config.sources({
         { name = "copilot",  priority = 1000 },
+        { name = "luasnip",  priority = 750 },
         { name = "nvim_lsp", priority = 500 },
-        { name = "luasnip",  priority = 500 },
         { name = "path",     priority = 200 },
         { name = "spell",    priority = 100 },
       }),
@@ -133,7 +123,7 @@ return {
       formatting = {
         format = lspkind.cmp_format({
           mode = "symbol_text",
-          maxwidth = 50,
+          maxwidth = 75,
           ellipsis_char = "...",
           symbol_map = icons.lspkind,
         }),
