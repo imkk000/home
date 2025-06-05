@@ -1,0 +1,109 @@
+---
+# import
+Import Zerolog:
+  prefix: zlimp
+  body: |-
+    "github.com/rs/zerolog/log"
+
+# log
+Zerolog Error:
+  prefix: zlerr
+  body: |-
+    log.${1|Fatal(),Error()|}.Err(err).${2|Msg,Msgf|}("$0")
+
+Zerolog Debug:
+  prefix: zllog
+  body: log.${1|Debug(),Info()|}.${2|Msg,Msgf|}("$0")
+
+If Error:
+  prefix: iferr
+  body: |-
+    if err != nil {
+      ${1|return err,|}
+    }
+    $0
+
+# json
+Marshal JSON:
+  prefix: jsonm
+  body: |-
+    content, err := json.Marshal(${1:struct})
+    if err != nil {
+      log.Fatal().Err(err).Msg("marshal")
+    }
+    fmt.Println(string(content))
+    $0
+
+# common
+Context Background:
+  prefix: ctxbg
+  body: ctx := context.${1|Background(),TODO()|}
+
+# client
+New MongoDB Client:
+  prefix: mongoclient
+  body: |-
+    const uri = "${1:uri}"
+    ctx := context.Background()
+    client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
+    if err != nil {
+      log.Fatal().Err(err).Msg("new mongodb client")
+    }
+    defer client.Disconnect(ctx)
+    $0
+
+New GRPC Client:
+  prefix: grpcclient
+  body: |-
+    conn, err := grpc.NewClient(
+      "${1:targetURL}",
+      grpc.WithTransportCredentials(creds.WithInsecureMode(${2|false,true|})),
+    )
+    if err != nil {
+      log.Fatal().Err(err).Msg("new grpc client")
+    }
+    $0
+
+# mongodb
+MongoDB Collection:
+  prefix: mongocol
+  body: col := client.Database("${1:dbName}").Collection("$0")
+
+MongoDB ObjectID:
+  prefix: mongoid
+  body: ${1:id}, ${2|err,_|} := primitive.ObjectIDFromHex("$0")
+
+# testing
+Sub Test Case:
+  prefix: subtc
+  body: |-
+    {
+      name: "${1:name}",
+      want${3:name}: ${4:wantType},
+      args: []any{${2:args}},
+      assertion: func(t *testing.T, tc testCase, args ...any) {
+        $0
+      },
+    },
+Sub Test Function:
+  prefix: subtf
+  body: |-
+    func Test${1:name}(t *testing.T) {
+      type testCase struct {
+        name      string
+        want{6:name} {7:wantType}
+        args      []any
+        assertion func(t *testing.T, tc testCase, args ...any)
+      }
+      tests := []testCase{
+        $0
+      }
+      for _, tc := range tests {
+        t.Run(tc.name, func(t *testing.T) {
+          t.Parallel()
+
+          ${4:actual} := ${2:funcName}(${3:args})
+          tc.assertion(t, tc, ${5:actual})
+        })
+      }
+    }

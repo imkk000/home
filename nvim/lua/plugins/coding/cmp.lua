@@ -90,8 +90,8 @@ return {
 
     cmp.setup({
       sources = cmp.config.sources({
-        { name = "copilot",  priority = 1000 },
-        { name = "luasnip",  priority = 750 },
+        { name = "luasnip",  priority = 1000 },
+        { name = "copilot",  priority = 750 },
         { name = "nvim_lsp", priority = 500 },
         { name = "path",     priority = 200 },
         { name = "spell",    priority = 100 },
@@ -102,7 +102,7 @@ return {
         ["<c-b>"] = cmp.mapping.scroll_docs(-4),
         ["<c-f>"] = cmp.mapping.scroll_docs(4),
         ["<c-space>"] = cmp.mapping.complete(),
-        ["<c-e>"] = cmp.mapping.abort(),
+        -- ["<c-e>"] = cmp.mapping.abort(),
         ["<cr>"] = cmp.mapping.confirm({ select = false }),
         ["<s-cr>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,

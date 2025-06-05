@@ -1,38 +1,50 @@
 {
   "Import Zerolog": {
     "prefix": "zlimp",
-    "body": "${1|,import |}\"github.com/rs/zerolog/log\""
+    "body": "\"github.com/rs/zerolog/log\""
   },
   "Zerolog Error": {
     "prefix": "zlerr",
-    "body": "log.${1|Fatal().Err(err),Warn().Err(err),Err(err)|}.Msg(\"$0\")"
+    "body": "log.${1|Fatal(),Error()|}.Err(err).${2|Msg,Msgf|}(\"$0\")"
   },
   "Zerolog Debug": {
     "prefix": "zllog",
-    "body": "log.${1|Debug,Info|}().Msg(\"$0\")"
+    "body": "log.${1|Debug(),Info()|}.${2|Msg,Msgf|}(\"$0\")"
   },
   "If Error": {
     "prefix": "iferr",
-    "body": [
-      "if err != nil {\n",
-      "\t${0:return err}\n",
-      "}"
-    ]
-  },
-  "Context Background": {
-    "prefix": "ctxbg",
-    "body": [
-      "ctx := context.${1|Background,TODO|}()"
-    ]
+    "body": "if err != nil {\n  ${1|return err,|}\n}\n$0"
   },
   "Marshal JSON": {
     "prefix": "jsonm",
-    "body": [
-      "content, err := json.Marshal($1)",
-      "if err != nil {",
-      "\tlog.Fatal().Err(err).Msg(\"marshal\")",
-      "}",
-      "fmt.Println(string(content))"
-    ]
+    "body": "content, err := json.Marshal(${1:struct})\nif err != nil {\n  log.Fatal().Err(err).Msg(\"marshal\")\n}\nfmt.Println(string(content))\n$0"
+  },
+  "Context Background": {
+    "prefix": "ctxbg",
+    "body": "ctx := context.${1|Background(),TODO()|}"
+  },
+  "New MongoDB Client": {
+    "prefix": "mongoclient",
+    "body": "const uri = \"${1:uri}\"\nctx := context.Background()\nclient, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))\nif err != nil {\n  log.Fatal().Err(err).Msg(\"new mongodb client\")\n}\ndefer client.Disconnect(ctx)\n$0"
+  },
+  "New GRPC Client": {
+    "prefix": "grpcclient",
+    "body": "conn, err := grpc.NewClient(\n  \"${1:targetURL}\",\n  grpc.WithTransportCredentials(creds.WithInsecureMode(${2|false,true|})),\n)\nif err != nil {\n  log.Fatal().Err(err).Msg(\"new grpc client\")\n}\n$0"
+  },
+  "MongoDB Collection": {
+    "prefix": "mongocol",
+    "body": "col := client.Database(\"${1:dbName}\").Collection(\"$0\")"
+  },
+  "MongoDB ObjectID": {
+    "prefix": "mongoid",
+    "body": "${1:id}, ${2|err,_|} := primitive.ObjectIDFromHex(\"$0\")"
+  },
+  "Sub Test Case": {
+    "prefix": "subtc",
+    "body": "{\n  name: \"${1:name}\",\n  want${3:name}: ${4:wantType},\n  args: []any{${2:args}},\n  assertion: func(t *testing.T, tc testCase, args ...any) {\n    $0\n  },\n},"
+  },
+  "Sub Test Function": {
+    "prefix": "subtf",
+    "body": "func Test${1:name}(t *testing.T) {\n  type testCase struct {\n    name      string\n    want{6:name} {7:wantType}\n    args      []any\n    assertion func(t *testing.T, tc testCase, args ...any)\n  }\n  tests := []testCase{\n    $0\n  }\n  for _, tc := range tests {\n    t.Run(tc.name, func(t *testing.T) {\n      t.Parallel()\n\n      ${4:actual} := ${2:funcName}(${3:args})\n      tc.assertion(t, tc, ${5:actual})\n    })\n  }\n}"
   }
 }
