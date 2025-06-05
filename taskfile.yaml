@@ -1,0 +1,5 @@
+---
+version: 3
+
+tasks:
+  gen_snippet: yq nvim/snippets/go.yaml -o json > nvim/snippets/go.json

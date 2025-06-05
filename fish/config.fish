@@ -186,6 +186,8 @@ new_abbr dkl "docker logs -f"
 function new_abbr_go
   new_abbr go$argv[1] "go get -u $argv[2]"
 end
+new_abbr_go cobra "github.com/spf13/cobra"
+new_abbr_go color "github.com/fatih/color"
 new_abbr_go dotenv "github.com/joho/godotenv"
 new_abbr_go echo "github.com/labstack/echo/v4"
 new_abbr_go envconfig "github.com/kelseyhightower/envconfig"
@@ -201,10 +203,11 @@ new_abbr_go mongo1 "go.mongodb.org/mongo-driver/mongo"
 new_abbr_go redis "github.com/redis/rueidis"
 new_abbr_go resty "github.com/go-resty/resty/v2"
 new_abbr_go testify "github.com/stretchr/testify"
+new_abbr_go urfavecli "github.com/urfave/cli/v3"
+new_abbr_go viper "github.com/spf13/viper"
 new_abbr_go websocket "github.com/gorilla/websocket"
-new_abbr_go zerolog "github.com/rs/zerolog"
-new_abbr_go color "github.com/fatih/color"
 new_abbr_go yaml "gopkg.in/yaml.v3"
+new_abbr_go zerolog "github.com/rs/zerolog"
 
 # abbreviation path
 new_abbr "..." "../.."
