@@ -2,4 +2,12 @@
 version: 3
 
 tasks:
-  gen_snippet: yq nvim/snippets/go.yaml -o json > nvim/snippets/go.json
+  gen_snippet:
+    dir: "{{.PWD}}"
+    cmd: >
+      yq -P -o json '
+      (select(.* | has("inline_body"))
+      | .* | .body = (.inline_body | (split(" ") | join("")))
+      | del(.inline_body))
+      |= .'
+      nvim/snippets/go.yaml > nvim/snippets/go.json
