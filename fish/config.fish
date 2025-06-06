@@ -182,6 +182,7 @@ new_abbr dkl "docker logs -f"
 function new_abbr_go -a name pkg
   new_abbr go$name "go get -u $pkg"
 end
+new_abbr_go cloudflare "github.com/cloudflare/cloudflare-go/v4"
 new_abbr_go cobra "github.com/spf13/cobra"
 new_abbr_go color "github.com/fatih/color"
 new_abbr_go dotenv "github.com/joho/godotenv"
