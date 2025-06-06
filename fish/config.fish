@@ -1,3 +1,5 @@
+fish_hybrid_key_bindings
+
 # set default PATH
 fish_add_path ~/.go/bin
 fish_add_path ~/.cargo/bin
@@ -14,14 +16,13 @@ alias vim="nvim"
 alias v="nvim"
 alias vv="nvim ."
 alias python="python3"
+alias cat="bat"
 
 zoxide init fish | source
 
 function only_linux
     fish_add_path /home/kk/.spicetify
 
-    # alias
-    alias cat="bat"
     alias pbcopy="xsel -b --input"
     alias pbpaste="xsel -b --output"
 end
@@ -29,10 +30,9 @@ end
 function only_darwin
     set -x BROWSER open
     set -x HOMEBREW_NO_ANALYTICS 1
-    # path
+
     fish_add_path /opt/homebrew/bin
 
-    # alias
     alias cat="bat"
 
     if [ -f "$HOME/.google-cloud-sdk/path.fish.inc" ]; . "$HOME/.google-cloud-sdk/path.fish.inc"; end
@@ -129,26 +129,20 @@ function _last_history_item
 end
 abbr --add !! --position anywhere --function _last_history_item
 
-function _glab_mr_url
-  glab mr view $argv[1] -F json | jq .web_url | tr -d '"'
+function _glab_mr_url -a mr_id
+  glab mr view $mr_id -F json | jq .web_url | tr -d '"'
 end
 alias glu=_glab_mr_url
 
-# abbreviation key bindings
-function _toggle_key_bindings
-switch $fish_key_bindings
-    case fish_hybrid_key_bindings
-      fish_default_key_bindings
-    case '*'
-      fish_hybrid_key_bindings
-    end
-end
-alias ff=_toggle_key_bindings
-
 # often use
-function new_abbr
-    abbr --add $argv[1] --position anywhere $argv[2]
+function new_abbr -a name command
+    abbr --add $name --position anywhere --set-cursor $command
 end
+
+new_abbr gomi "go install github.com/imkk000/%@latest"
+new_abbr goi "go install %@latest"
+new_abbr gog "go get -u"
+new_abbr gob "go build -ldflags='-w -s' -o"
 
 # abbreviation github cli
 new_abbr ghv "gh repo view -w"
@@ -158,15 +152,17 @@ new_abbr glmc "glab mr create --remove-source-branch --squash-before-merge --tar
 new_abbr glmcm "glab mr create --remove-source-branch --squash-before-merge --target-branch=main"
 new_abbr glmcd "glab mr create --remove-source-branch --squash-before-merge --target-branch=develop"
 new_abbr glmcf "glab mr create --remove-source-branch --squash-before-merge --target-branch=features"
+new_abbr glmcv "glab mr create --remove-source-branch --squash-before-merge --target-branch=v%"
 new_abbr gls "git log HEAD -1 --pretty=format:'%s'"
 
 abbr --erase gup
+abbr --erase ggu
+abbr --erase glr
 
 # abbreviation git
 new_abbr gds "git diff --staged"
 new_abbr grsh "git reset --soft HEAD^"
-new_abbr glrd "git pull --rebase origin develop"
-new_abbr glrm "git pull --rebase origin main"
+new_abbr glr "git pull --rebase origin"
 
 # abbreviation tmux
 new_abbr td "tmux detach"
@@ -183,8 +179,8 @@ new_abbr dkcl "docker container ls -a"
 new_abbr dkl "docker logs -f"
 
 # abbreviation go package frequency used
-function new_abbr_go
-  new_abbr go$argv[1] "go get -u $argv[2]"
+function new_abbr_go -a name pkg
+  new_abbr go$name "go get -u $pkg"
 end
 new_abbr_go cobra "github.com/spf13/cobra"
 new_abbr_go color "github.com/fatih/color"

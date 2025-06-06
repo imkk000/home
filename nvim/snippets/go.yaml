@@ -23,6 +23,14 @@ If Error:
     }
     $0
 
+Custom Zerolog:
+  prefix: zlnew
+  body: |-
+    log.Logger = log.Output(zerolog.ConsoleWriter{
+      Out: os.Stdout,
+      FormatTimestamp: func(any) string { return "" },
+    })
+
 # json
 Marshal JSON:
   prefix: jsonm

@@ -15,6 +15,10 @@
     "prefix": "iferr",
     "body": "if err != nil {\n  ${1|return err,|}\n}\n$0"
   },
+  "Custom Zerolog": {
+    "prefix": "zlnew",
+    "body": "log.Logger = log.Output(zerolog.ConsoleWriter{\n  Out: os.Stdout,\n  FormatTimestamp: func(any) string { return \"\" },\n})"
+  },
   "Marshal JSON": {
     "prefix": "jsonm",
     "body": "content, err := json.Marshal(${1:struct})\nif err != nil {\n  log.Fatal().Err(err).Msg(\"marshal\")\n}\nfmt.Println(string(content))\n$0"
