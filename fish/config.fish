@@ -136,9 +136,23 @@ alias glu=_glab_mr_url
 
 # often use
 function new_abbr -a name command
-    abbr --add $name --position anywhere --set-cursor $command
+  abbr --add $name --position anywhere --set-cursor $command
 end
 
+function new_abbr_no_cursor -a name command
+  abbr --add $name --position anywhere $command
+end
+
+function erase_abbr
+  for name in $argv
+    abbr --erase $name
+  end
+end
+
+# abbreviation task cli
+new_abbr tg "task -d $PWD -t ~/.taskfile.yaml"
+
+# abbreviation golang
 new_abbr gomi "go install github.com/imkk000/%@latest"
 new_abbr goi "go install %@latest"
 new_abbr gog "go get -u"
@@ -153,11 +167,8 @@ new_abbr glmcm "glab mr create --remove-source-branch --squash-before-merge --ta
 new_abbr glmcd "glab mr create --remove-source-branch --squash-before-merge --target-branch=develop"
 new_abbr glmcf "glab mr create --remove-source-branch --squash-before-merge --target-branch=features"
 new_abbr glmcv "glab mr create --remove-source-branch --squash-before-merge --target-branch=v%"
-new_abbr gls "git log HEAD -1 --pretty=format:'%s'"
-
-abbr --erase gup
-abbr --erase ggu
-abbr --erase glr
+new_abbr_no_cursor gls "git log HEAD -1 --pretty=format:'%s'"
+erase_abbr gup ggu glr
 
 # abbreviation git
 new_abbr gds "git diff --staged"
@@ -185,6 +196,7 @@ end
 new_abbr_go cloudflare "github.com/cloudflare/cloudflare-go/v4"
 new_abbr_go cobra "github.com/spf13/cobra"
 new_abbr_go color "github.com/fatih/color"
+new_abbr_go cron "github.com/robfig/cron/v3"
 new_abbr_go dotenv "github.com/joho/godotenv"
 new_abbr_go echo "github.com/labstack/echo/v4"
 new_abbr_go envconfig "github.com/kelseyhightower/envconfig"
@@ -193,6 +205,7 @@ new_abbr_go fiber "github.com/gofiber/fiber/v2"
 new_abbr_go gin "github.com/gin-gonic/gin"
 new_abbr_go git "github.com/go-git/go-git/v5"
 new_abbr_go gitlab "gitlab.com/gitlab-org/api/client-go"
+new_abbr_go godump "github.com/goforj/godump"
 new_abbr_go goquery "github.com/PuerkitoBio/goquery"
 new_abbr_go kafka "github.com/confluentinc/confluent-kafka-go/v2"
 new_abbr_go mongo "go.mongodb.org/mongo-driver/mongo/v2"
@@ -201,6 +214,7 @@ new_abbr_go redis "github.com/redis/rueidis"
 new_abbr_go resty "github.com/go-resty/resty/v2"
 new_abbr_go testify "github.com/stretchr/testify"
 new_abbr_go urfavecli "github.com/urfave/cli/v3"
+new_abbr_go uuid "github.com/google/uuid"
 new_abbr_go viper "github.com/spf13/viper"
 new_abbr_go websocket "github.com/gorilla/websocket"
 new_abbr_go yaml "gopkg.in/yaml.v3"
