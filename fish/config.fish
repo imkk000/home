@@ -53,6 +53,7 @@ set -U nvm_default_version v24.1.0
 set -U function_path ~/.private-home/fish/functions
 set -a fish_function_path $function_path
 set -Ux LC_ALL "en_US.UTF-8"
+set -x ASPELL_CONF "personal $HOME/.home/spell/aspell.en.pws"
 
 function fish_prompt
   set -l go ""
