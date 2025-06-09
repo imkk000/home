@@ -151,7 +151,7 @@ function erase_abbr
 end
 
 # abbreviation task cli
-new_abbr tg "task -d $PWD -t ~/.taskfile.yaml"
+new_abbr tg "task -d $PWD"
 
 # abbreviation golang
 new_abbr gomi "go install github.com/imkk000/%@latest"
@@ -189,6 +189,10 @@ new_abbr dcp "docker compose ps -a"
 new_abbr dcl "docker compose logs -f"
 new_abbr dkcl "docker container ls -a"
 new_abbr dkl "docker logs -f"
+new_abbr dkier "docker exec -it -exec --rm % -- sh"
+new_abbr dkie "docker exec -it -exec % -- sh"
+new_abbr dkia "docker image ls -a"
+new_abbr dkca "docker container ls -a"
 
 # abbreviation go package frequency used
 function new_abbr_go -a name pkg
