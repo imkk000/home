@@ -25,7 +25,7 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "catppuccin" } },
+  install = { colorscheme = { "moonfly" } },
   change_detection = { enabled = true, notify = false },
   checker = { enabled = false },
 })

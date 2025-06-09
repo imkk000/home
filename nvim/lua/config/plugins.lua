@@ -48,6 +48,7 @@ local _plugins = {
       mini_comment = "echasnovski/mini.comment",
     },
     catppuccin = "catppuccin/nvim",
+    moonfly = "bluz71/vim-moonfly-colors",
     neo_tree = "nvim-neo-tree/neo-tree.nvim",
     lualine = "nvim-lualine/lualine.nvim",
     illuminate = "RRethy/vim-illuminate",

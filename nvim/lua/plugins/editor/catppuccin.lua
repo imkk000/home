@@ -2,7 +2,9 @@
 return {
   plugins.editor.repo_catppuccin,
   name = plugins.editor.catppuccin,
+  enabled = false,
   priority = 1000,
+  lazy = false,
   opts = {
     styles = {
       comments = { "italic" },

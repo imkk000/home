@@ -14,7 +14,7 @@ return {
       lualine_y = { "progress" },
     },
     options = {
-      theme = "catppuccin",
+      theme = "moonfly",
       disabled_filetypes = {
         statusline = {
           "alpha",
