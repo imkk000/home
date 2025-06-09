@@ -158,6 +158,7 @@ new_abbr gomi "go install github.com/imkk000/%@latest"
 new_abbr goi "go install %@latest"
 new_abbr gog "go get -u"
 new_abbr gob "go build -ldflags='-w -s' -o"
+new_abbr gomd "go mod tidy"
 
 # abbreviation github cli
 new_abbr ghv "gh repo view -w"
