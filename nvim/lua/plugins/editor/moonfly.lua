@@ -4,7 +4,8 @@ return {
   name = plugins.editor.moonfly,
   priority = 1000,
   lazy = false,
-  config = function(_, opts)
+  enabled = false,
+  config = function()
     vim.cmd.colorscheme("moonfly")
   end,
 }

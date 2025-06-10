@@ -49,6 +49,7 @@ local _plugins = {
     },
     catppuccin = "catppuccin/nvim",
     moonfly = "bluz71/vim-moonfly-colors",
+    tomorrow = "chriskempson/vim-tomorrow-theme",
     neo_tree = "nvim-neo-tree/neo-tree.nvim",
     lualine = "nvim-lualine/lualine.nvim",
     illuminate = "RRethy/vim-illuminate",

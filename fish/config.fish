@@ -11,12 +11,13 @@ alias ls="eza -g --color=always"
 alias l="ls"
 alias e="exit"
 alias c="clear"
-alias k="kubectl"
 alias vim="nvim"
 alias v="nvim"
 alias vv="nvim ."
 alias python="python3"
 alias cat="bat"
+alias k="kubectl"
+alias kctx="kubectx"
 
 zoxide init fish | source
 
@@ -56,11 +57,7 @@ set -Ux LC_ALL "en_US.UTF-8"
 set -x ASPELL_CONF "personal $HOME/.home/spell/aspell.en.pws"
 
 function fish_prompt
-  set -l go ""
-  set -l git_branch ""
-  set -l pwd (prompt_pwd --full-length-dirs=3 --dir-length=2)
-  set -l dir (path dirname $pwd)
-  set -l path (path basename $pwd)
+  set -l pwd (prompt_pwd --full-length-dirs=3 --dir-length=3)
   set -l name (whoami)
   switch $name
     case nattakit.b
@@ -69,30 +66,9 @@ function fish_prompt
       set name (string upper $name)
   end
 
-  # show git branch
-  if command -v git >/dev/null 2>&1
-    set git_branch (git branch --show-current 2>/dev/null)
-    if test -n "$git_branch"
-      set git_branch (string join "" -- "(" $git_branch ")")
-    end
-  end
-
-  # show go version
-  if test -f "go.mod"
-    if command -v go >/dev/null 2>&1
-      and command -v jq >/dev/null 2>&1
-      set -l go_version (go mod edit -json | jq -r ".Go")
-      set -l go_module (go mod edit -json | jq -r '.Module.Path')
-      set go (string join "" -- "[" $go_module "@" $go_version "]")
-    end
-  end
-
   string join "" -- \
-    (set_color -o cc6699) "$name" (set_color normal) \
-    (set_color brblue) " $dir" (set_color normal) \
-    (set_color -oi ffa600) " $path" (set_color normal) \
-    (set_color -o 99e6ff) " $git_branch" (set_color normal) \
-    (set_color -o ffff4d) " $go" (set_color normal) \n \
+    (set_color -o cc6699) "$name " (set_color normal) \
+    (set_color -oi cc7a00) $pwd (set_color normal) \n \
     (set_color -o 999999) "\$> " (set_color normal)
 end
 
@@ -150,8 +126,12 @@ function erase_abbr
   end
 end
 
-# abbreviation task cli
-new_abbr tg "task -d $PWD"
+# abbreviation kubectl
+abbr --add kg "kubectl get"
+abbr --add kl --set-cursor "kubectl logs -f"
+abbr --add pd -c kubectl "pods"
+abbr --add dv -c kubectl "deployments"
+abbr --add sv -c kubectl "services"
 
 # abbreviation golang
 new_abbr gomi "go install github.com/imkk000/%@latest"
@@ -165,10 +145,6 @@ new_abbr ghv "gh repo view -w"
 new_abbr ghcr "gh repo create --source=. --remote=origin"
 new_abbr glv "glab repo view -w"
 new_abbr glmc "glab mr create --remove-source-branch --squash-before-merge --target-branch="
-new_abbr glmcm "glab mr create --remove-source-branch --squash-before-merge --target-branch=main"
-new_abbr glmcd "glab mr create --remove-source-branch --squash-before-merge --target-branch=develop"
-new_abbr glmcf "glab mr create --remove-source-branch --squash-before-merge --target-branch=features"
-new_abbr glmcv "glab mr create --remove-source-branch --squash-before-merge --target-branch=v%"
 new_abbr_no_cursor gls "git log HEAD -1 --pretty=format:'%s'"
 erase_abbr gup ggu glr
 
@@ -179,16 +155,15 @@ new_abbr glr "git pull --rebase origin"
 
 # abbreviation tmux
 new_abbr td "tmux detach"
-new_abbr ta "tmux attach"
+new_abbr ta "tmux attach -t"
 new_abbr tls "tmux list-sessions"
-new_abbr tn "tmux new-session"
+new_abbr tn "tmux new-session -t"
 
 # abbreviation docker
 new_abbr dcu "docker compose up -d"
 new_abbr dcd "docker compose down"
 new_abbr dcp "docker compose ps -a"
 new_abbr dcl "docker compose logs -f"
-new_abbr dkcl "docker container ls -a"
 new_abbr dkl "docker logs -f"
 new_abbr dkier "docker exec -it -exec --rm % -- sh"
 new_abbr dkie "docker exec -it -exec % -- sh"
