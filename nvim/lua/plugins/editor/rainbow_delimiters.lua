@@ -2,7 +2,7 @@
 return {
   plugins.editor.repo_rainbow_delimiters,
   name = plugins.editor.rainbow_delimiters,
-  lazy = true,
+  event = "VimEnter",
   opts = {
     strategy = {
       [""] = "rainbow-delimiters.strategy.global",
@@ -12,17 +12,21 @@ return {
       [""] = "rainbow-delimiters",
       lua = "rainbow-blocks",
     },
+    priority = {
+      [""] = 110,
+      lua = 210,
+    },
     highlight = {
       "RainbowDelimiterYellow",
-      "RainbowDelimiterRed",
-      "RainbowDelimiterBlue",
+      "RainbowDelimiterCyan",
       "RainbowDelimiterOrange",
+      "RainbowDelimiterBlue",
       "RainbowDelimiterGreen",
       "RainbowDelimiterViolet",
-      "RainbowDelimiterCyan",
+      "RainbowDelimiterRed",
     },
   },
   config = function(_, opts)
-    require("rainbow-delimiters.setup").setup(opts)
+    vim.g.rainbow_delimeters = opts
   end,
 }

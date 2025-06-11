@@ -23,7 +23,7 @@ return {
       "git_status",
       "document_symbols",
     },
-    source_selector = { statusline = true },
+    source_selector = { statusline = false },
     filesystem = {
       use_libuv_file_watcher = true,
       filtered_items = {
