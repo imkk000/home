@@ -25,7 +25,6 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "moonfly" } },
   change_detection = { enabled = true, notify = false },
   checker = { enabled = false },
 })

@@ -11,9 +11,7 @@ make_link fish/config.fish ~/.config/fish/config.fish
 make_link tmux/tmux.conf ~/.tmux.conf
 
 mkdir -p ~/.tmux/themes
-if not test -d ~/.tmux/themes/tmux-tomorrow
-  git clone https://github.com/edouard-lopez/tmux-tomorrow ~/.tmux/themes/tmux-tomorrow
-end
+make_link tmux/tomorrow_fork.tmux ~/.tmux/themes/tomorrow_fork.tmux
 
 mkdir -p ~/.tmux/modules
 make_link tmux/go.fish ~/.tmux/modules/go.fish
