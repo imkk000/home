@@ -49,6 +49,6 @@
   },
   "Sub Test Function": {
     "prefix": "subtf",
-    "body": "func Test${1:name}(t *testing.T) {\n  type testCase struct {\n    name      string\n    want{6:name} {7:wantType}\n    args      []any\n    assertion func(t *testing.T, tc testCase, args ...any)\n  }\n  tests := []testCase{\n    $0\n  }\n  for _, tc := range tests {\n    t.Run(tc.name, func(t *testing.T) {\n      t.Parallel()\n\n      ${4:actual} := ${2:funcName}(${3:args})\n      tc.assertion(t, tc, ${5:actual})\n    })\n  }\n}"
+    "body": "func Test${1:name}(t *testing.T) {\n  type testCase struct {\n    name      string\n    want${6:name} ${7:wantType}\n    args      []any\n    assertion func(t *testing.T, tc testCase, args ...any)\n  }\n  tests := []testCase{\n    $0\n  }\n  for _, tc := range tests {\n    t.Run(tc.name, func(t *testing.T) {\n      t.Parallel()\n\n      ${4:actual} := ${2:funcName}(${3:args})\n      tc.assertion(t, tc, ${5:actual})\n    })\n  }\n}"
   }
 }

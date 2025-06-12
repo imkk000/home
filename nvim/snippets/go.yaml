@@ -99,7 +99,7 @@ Sub Test Function:
     func Test${1:name}(t *testing.T) {
       type testCase struct {
         name      string
-        want{6:name} {7:wantType}
+        want${6:name} ${7:wantType}
         args      []any
         assertion func(t *testing.T, tc testCase, args ...any)
       }
