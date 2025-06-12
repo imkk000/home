@@ -1,0 +1,21 @@
+{
+  "name": "tomorrow-fork",
+  "displayName": "Tomorrow Fork",
+  "description": "Eye-comfortable ultra-dark theme with muted blue accents",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Tomorrow Fork",
+        "uiTheme": "vs-dark",
+        "path": "./tomorrow-fork.json"
+      }
+    ]
+  }
+}
