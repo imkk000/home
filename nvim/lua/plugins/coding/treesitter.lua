@@ -23,15 +23,7 @@ return {
       disable = {},
       additional_vim_regex_highlighting = false,
     },
-    incremental_selection = {
-      enable = true,
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
-    },
     textobjects = {
-      lsp_interop = { enable = false },
       select = {
         enable = true,
         lookahead = true,
@@ -77,15 +69,9 @@ return {
           ["]a"] = "@comment.outer",
         },
       },
-      swap = {
-        enable = true,
-        swap_next = {
-          ["<leader>]"] = "@parameter.inner",
-        },
-        swap_previous = {
-          ["<leader>["] = "@parameter.inner",
-        },
-      },
+      swap = { enable = false },
+      incremental_selection = { enable = false },
+      lsp_interop = { enable = false },
     },
   },
   config = function(_, opts)

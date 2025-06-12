@@ -1,12 +1,15 @@
 fish_hybrid_key_bindings
 
+set -x TERM "screen-256color"
+set -x COLORTERM "truecolor"
+
 # set default PATH
 fish_add_path ~/.go/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.local/bin
 
 # set default alias
-alias fish_reload="source $HOME/.config/fish/config.fish"
+alias fish_reload="source ~/.config/fish/config.fish"
 alias ls="eza -g --color=always"
 alias l="ls"
 alias e="exit"
@@ -68,7 +71,7 @@ function fish_prompt
 
   string join "" -- \
     (set_color -o cc6699) "$name " (set_color normal) \
-    (set_color -oi cc7a00) $pwd (set_color normal) \n \
+    (set_color -o 8a7a42) $pwd (set_color normal) \n \
     (set_color -o 999999) "\$> " (set_color normal)
 end
 
@@ -78,19 +81,19 @@ end
 function fish_mode_prompt
   switch $fish_bind_mode
     case default
-      set_color -o 99ff66
+      set_color -o 4a7a95
       echo '[N] '
     case insert
-      set_color -o ffff00
+      set_color -o 5a6a5f
       echo '[I] '
     case replace_one
-      set_color -o e6eeff
+      set_color -o a8955a
       echo '[R] '
     case visual
-      set_color -o e6eeff
+      set_color -o 3a6a85
       echo '[V] '
-    case '[*] '
-      set_color -o red
+    case '*'
+      set_color -o a85a57
       echo '[?] '
   end
   set_color normal
@@ -200,8 +203,9 @@ new_abbr_go urfavecli "github.com/urfave/cli/v3"
 new_abbr_go uuid "github.com/google/uuid"
 new_abbr_go viper "github.com/spf13/viper"
 new_abbr_go websocket "github.com/gorilla/websocket"
-new_abbr_go yaml "gopkg.in/yaml.v3"
+new_abbr_go yaml "github.com/goccy/go-yaml"
 new_abbr_go zerolog "github.com/rs/zerolog"
+new_abbr_go mapstructure "github.com/go-viper/mapstructure/v2"
 
 # abbreviation path
 new_abbr "..." "../.."

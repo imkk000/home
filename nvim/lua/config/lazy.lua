@@ -28,3 +28,5 @@ require("lazy").setup({
   change_detection = { enabled = true, notify = false },
   checker = { enabled = false },
 })
+
+vim.cmd.colorscheme("tomorrow_fork")

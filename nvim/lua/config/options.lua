@@ -2,6 +2,8 @@ local g = vim.g
 local opt = vim.opt
 
 -- global
+vim.bo.syntax = "off"
+
 g.mapleader = " "
 g.maplocalleader = "\\"
 g.markdown_recommended_style = 1
