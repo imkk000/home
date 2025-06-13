@@ -25,7 +25,6 @@ return {
       posititon = "center",
       width = 0.95,
     },
-    diagnostic = { underline = false },
   },
   config = function(_, opts)
     local opt = { noremap = true, silent = true }

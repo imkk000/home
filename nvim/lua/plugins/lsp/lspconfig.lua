@@ -14,7 +14,6 @@ return {
   },
   event = { "BufReadPre", "BufNewFile" },
   opts = {
-    diagnostics = { underline = false },
     autoformat = true,
     servers = {
       lua_ls = {

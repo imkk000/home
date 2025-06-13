@@ -29,24 +29,69 @@ local colors = {
   border = "#2a4555", -- Borders and separators
   cursor = "#4a6b85", -- Cursor color
 
-  -- Go accent colors (muted blues)
-  go_keyword = "#4a7a95",     -- Go keywords (func, type, var, const)
-  go_type = "#3a5a75",        -- Built-in types (int, string, bool)
-  go_function = "#3a6a85",    -- Function names and calls
-  go_package = "#a85a57",     -- Package names and imports
-  go_struct = "#1a3545",      -- Struct and interface names
-  
-  -- Go literals and constants
-  go_string = "#5a6a5f",      -- String literals
-  go_number = "#a8955a",      -- Numeric literals
-  go_boolean = "#6a5a85",     -- true/false
-  go_operator = "#6a5a85",    -- Operators
+  -- Diagnostic colors
+  diagnostic_warning = "#a8955a",
+  diagnostic_error = "#a85a57",
+  diagnostic_info = "#5a6a5f",
+  diagnostic_hint = "#5a6a5f",
+  diagnostic_ok = "#5a6a5f",
+  diagnostic_deprecated = "#3a4248",
+  diagnostic_unnecessary = "#3a4248",
 }
 
 -- Helper function to set highlights
 local function highlight(group, opts)
   vim.api.nvim_set_hl(0, group, opts)
 end
+
+-- Rainbow delimiters
+highlight("RainbowDelimiterRed", { fg = "#8B0000" })
+highlight("RainbowDelimiterYellow", { fg = "#B8860B" })
+highlight("RainbowDelimiterOrange", { fg = "#FF4500" })
+highlight("RainbowDelimiterGreen", { fg = "#006400" })
+highlight("RainbowDelimiterBlue", { fg = "#1a1aff" })
+highlight("RainbowDelimiterViolet", { fg = "#4B0082" })
+highlight("RainbowDelimiterCyan", { fg = "#008B8B" })
+
+-- Diagnostic colors
+highlight("DiagnosticError", { fg = colors.diagnostic_error })
+highlight("DiagnosticWarning", { fg = colors.diagnostic_warning })
+highlight("DiagnosticWarn", { fg = colors.diagnostic_warning })
+highlight("DiagnosticHint", { fg = colors.diagnostic_hint })
+highlight("DiagnosticInfo", { fg = colors.diagnostic_info })
+highlight("DiagnosticOk", { fg = colors.diagnostic_ok })
+highlight("DiagnosticFloatingError", { fg = colors.diagnostic_error })
+highlight("DiagnosticFloatingWarning", { fg = colors.diagnostic_warning })
+highlight("DiagnosticFloatingWarn", { fg = colors.diagnostic_warning })
+highlight("DiagnosticFloatingHint", { fg = colors.diagnostic_hint })
+highlight("DiagnosticFloatingInfo", { fg = colors.diagnostic_info })
+highlight("DiagnosticFloatingOk", { fg = colors.diagnostic_ok })
+highlight("DiagnosticSignError", { fg = colors.diagnostic_error })
+highlight("DiagnosticSignWarning", { fg = colors.diagnostic_warning })
+highlight("DiagnosticSignWarn", { fg = colors.diagnostic_warning })
+highlight("DiagnosticSignHint", { fg = colors.diagnostic_hint })
+highlight("DiagnosticSignInfo", { fg = colors.diagnostic_info })
+highlight("DiagnosticSignOk", { fg = colors.diagnostic_ok })
+highlight("DiagnosticUnderlineError", { fg = colors.diagnostic_error })
+highlight("DiagnosticUnderlineWarning", { fg = colors.diagnostic_warning })
+highlight("DiagnosticUnderlineWarn", { fg = colors.diagnostic_warning })
+highlight("DiagnosticUnderlineHint", { fg = colors.diagnostic_hint })
+highlight("DiagnosticUnderlineInfo", { fg = colors.diagnostic_info })
+highlight("DiagnosticUnderlineOk", { fg = colors.diagnostic_ok })
+highlight("DiagnosticVirtualLinesError", { fg = colors.diagnostic_error })
+highlight("DiagnosticVirtualLinesWarning", { fg = colors.diagnostic_warning })
+highlight("DiagnosticVirtualLinesWarn", { fg = colors.diagnostic_warning })
+highlight("DiagnosticVirtualLinesHint", { fg = colors.diagnostic_hint })
+highlight("DiagnosticVirtualLinesInfo", { fg = colors.diagnostic_info })
+highlight("DiagnosticVirtualLinesOk", { fg = colors.diagnostic_ok })
+highlight("DiagnosticVirtualTextError", { fg = colors.diagnostic_error })
+highlight("DiagnosticVirtualTextWarning", { fg = colors.diagnostic_warning })
+highlight("DiagnosticVirtualTextWarn", { fg = colors.diagnostic_warning })
+highlight("DiagnosticVirtualTextHint", { fg = colors.diagnostic_hint })
+highlight("DiagnosticVirtualTextInfo", { fg = colors.diagnostic_info })
+highlight("DiagnosticVirtualTextOk", { fg = colors.diagnostic_ok })
+highlight("DiagnosticDeprecated", { fg = colors.diagnostic_deprecated })
+highlight("DiagnosticUnnecessary", { fg = colors.diagnostic_unnecessary })
 
 -- Editor background and text
 highlight("Normal", { fg = colors.fg_primary, bg = colors.bg_primary })
@@ -361,81 +406,3 @@ highlight("TSOperator", { link = "@operator" })
 highlight("TSPunctDelimiter", { link = "@punctuation.delimiter" })
 highlight("TSPunctBracket", { link = "@punctuation.bracket" })
 highlight("TSError", { link = "@error" })
-
--- Go keywords (package, import, func, type, var, const, etc.)
-highlight("@keyword.go", { fg = colors.go_keyword, bold = true })
-highlight("@keyword.function.go", { fg = colors.go_keyword, bold = true })
-highlight("@keyword.return.go", { fg = colors.go_keyword })
-highlight("@keyword.operator.go", { fg = colors.go_keyword })
-highlight("@keyword.conditional.go", { fg = colors.go_keyword })
-highlight("@keyword.repeat.go", { fg = colors.go_keyword })
-highlight("@keyword.exception.go", { fg = colors.go_keyword })
-highlight("@keyword.storage.go", { fg = colors.go_keyword })
-
--- Go package and imports
-highlight("@module.go", { fg = colors.go_package, bold = true })
-highlight("@string.special.path.go", { fg = colors.go_string })
-
--- Go types
-highlight("@type.go", { fg = colors.go_type })
-highlight("@type.builtin.go", { fg = colors.go_type, bold = true })
-highlight("@type.definition.go", { fg = colors.go_struct })
-
--- Go functions
-highlight("@function.go", { fg = colors.go_function })
-highlight("@function.call.go", { fg = colors.go_function })
-highlight("@function.method.go", { fg = colors.go_function })
-highlight("@function.method.call.go", { fg = colors.go_function })
-highlight("@function.builtin.go", { fg = colors.go_function, bold = true })
-
--- Go variables and parameters
-highlight("@variable.go", { fg = colors.fg_primary })
-highlight("@variable.parameter.go", { fg = colors.fg_primary })
-highlight("@variable.member.go", { fg = colors.fg_primary })
-highlight("@variable.builtin.go", { fg = colors.go_type })
-
--- Go constants and literals
-highlight("@constant.go", { fg = colors.go_boolean })
-highlight("@constant.builtin.go", { fg = colors.go_boolean, bold = true })
-highlight("@boolean.go", { fg = colors.go_boolean })
-highlight("@number.go", { fg = colors.go_number })
-highlight("@number.float.go", { fg = colors.go_number })
-
--- Go strings
-highlight("@string.go", { fg = colors.go_string })
-highlight("@string.escape.go", { fg = colors.go_function })
-highlight("@character.go", { fg = colors.go_string })
-
--- Go operators and punctuation
-highlight("@operator.go", { fg = colors.go_operator })
-highlight("@punctuation.delimiter.go", { fg = colors.fg_primary })
-highlight("@punctuation.bracket.go", { fg = colors.fg_primary })
-highlight("@punctuation.special.go", { fg = colors.go_operator })
-
--- Go comments
-highlight("@comment.go", { fg = colors.fg_comment, italic = true })
-highlight("@comment.documentation.go", { fg = colors.fg_comment, italic = true })
-
--- Go field and property access
-highlight("@property.go", { fg = colors.fg_primary })
-highlight("@field.go", { fg = colors.fg_primary })
-
--- Go labels (for goto/break/continue)
-highlight("@label.go", { fg = colors.go_keyword })
-
--- Go constructors and struct initialization
-highlight("@constructor.go", { fg = colors.go_struct })
-
--- ===================
--- GO-SPECIFIC CONSTRUCTS
--- ===================
-
--- Go channels and goroutines (if supported by parser)
-highlight("@keyword.coroutine.go", { fg = colors.go_keyword, bold = true })  -- go routine
-highlight("@operator.go", { fg = colors.go_operator })  -- <- channel operator
-
--- Go defer/panic/recover
-highlight("@keyword.exception.go", { fg = colors.go_keyword })
-
--- Go interface{} and any
-highlight("@type.builtin.go", { fg = colors.go_type, bold = true })

@@ -2,7 +2,7 @@
 return {
   plugins.editor.repo_rainbow_delimiters,
   name = plugins.editor.rainbow_delimiters,
-  event = "VimEnter",
+  event = { "BufReadPre", "BufNewFile" },
   opts = {
     strategy = {
       [""] = "rainbow-delimiters.strategy.global",
@@ -18,12 +18,12 @@ return {
     },
     highlight = {
       "RainbowDelimiterYellow",
-      "RainbowDelimiterCyan",
       "RainbowDelimiterOrange",
-      "RainbowDelimiterBlue",
       "RainbowDelimiterGreen",
-      "RainbowDelimiterViolet",
       "RainbowDelimiterRed",
+      "RainbowDelimiterViolet",
+      "RainbowDelimiterCyan",
+      "RainbowDelimiterBlue",
     },
   },
   config = function(_, opts)
