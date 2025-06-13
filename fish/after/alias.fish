@@ -1,0 +1,19 @@
+alias fish_reload="source ~/.config/fish/config.fish"
+alias ls="eza -g --color=always"
+alias l="ls"
+alias e="exit"
+alias c="clear"
+alias vim="nvim"
+alias v="nvim"
+alias vv="nvim ."
+alias python="python3"
+alias cat="bat"
+alias k="kubectl"
+alias kctx="kubectx"
+alias glu="glab_mr_url"
+
+switch (uname)
+  case Linux
+    alias pbcopy="xclip -sel clipboard"
+    alias pbpaste="xclip -sel clipboard -o"
+end

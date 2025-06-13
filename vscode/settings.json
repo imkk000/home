@@ -1,0 +1,22 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontFamily": "'Monaspace Argon', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 13,
+  "editor.lineNumbers": "relative",
+  "editor.mouseWheelZoom": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "security.workspace.trust.emptyWindow": false,
+  "security.workspace.trust.enabled": false,
+  "vim.smartRelativeLine": true,
+  "vim.useCtrlKeys": false,
+  "workbench.colorTheme": "Tomorrow Fork",
+  "workbench.sideBar.location": "right"
+}
