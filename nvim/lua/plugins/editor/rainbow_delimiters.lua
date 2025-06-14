@@ -17,13 +17,13 @@ return {
       lua = 210,
     },
     highlight = {
-      "RainbowDelimiterYellow",
-      "RainbowDelimiterOrange",
-      "RainbowDelimiterGreen",
       "RainbowDelimiterRed",
-      "RainbowDelimiterViolet",
-      "RainbowDelimiterCyan",
+      "RainbowDelimiterGreen",
       "RainbowDelimiterBlue",
+      "RainbowDelimiterOrange",
+      "RainbowDelimiterViolet",
+      "RainbowDelimiterYellow",
+      "RainbowDelimiterCyan",
     },
   },
   config = function(_, opts)

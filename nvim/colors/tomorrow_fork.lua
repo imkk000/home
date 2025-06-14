@@ -29,14 +29,13 @@ local colors = {
   border = "#2a4555", -- Borders and separators
   cursor = "#4a6b85", -- Cursor color
 
-  -- Diagnostic colors
-  diagnostic_warning = "#a8955a",
-  diagnostic_error = "#a85a57",
-  diagnostic_info = "#5a6a5f",
-  diagnostic_hint = "#5a6a5f",
-  diagnostic_ok = "#5a6a5f",
-  diagnostic_deprecated = "#3a4248",
-  diagnostic_unnecessary = "#3a4248",
+  diagnostic_warning = "#9A8B4A",
+  diagnostic_error = "#9A5B58",
+  diagnostic_info = "#5A7A5F",
+  diagnostic_hint = "#65758A",
+  diagnostic_ok = "#5F8F5F",
+  diagnostic_deprecated = "#5A5B5F",
+  diagnostic_unnecessary = "#7A6B5F",
 }
 
 -- Helper function to set highlights
@@ -45,13 +44,13 @@ local function highlight(group, opts)
 end
 
 -- Rainbow delimiters
-highlight("RainbowDelimiterRed", { fg = "#8B0000" })
-highlight("RainbowDelimiterYellow", { fg = "#B8860B" })
-highlight("RainbowDelimiterOrange", { fg = "#FF4500" })
-highlight("RainbowDelimiterGreen", { fg = "#006400" })
-highlight("RainbowDelimiterBlue", { fg = "#1a1aff" })
-highlight("RainbowDelimiterViolet", { fg = "#4B0082" })
-highlight("RainbowDelimiterCyan", { fg = "#008B8B" })
+highlight("RainbowDelimiterRed", { fg = "#C55A5A" })
+highlight("RainbowDelimiterYellow", { fg = "#C9A865" })
+highlight("RainbowDelimiterOrange", { fg = "#B8845A" })
+highlight("RainbowDelimiterGreen", { fg = "#7FA05F" })
+highlight("RainbowDelimiterBlue", { fg = "#5A8FC7" })
+highlight("RainbowDelimiterViolet", { fg = "#A565B8" })
+highlight("RainbowDelimiterCyan", { fg = "#4A9AA0" })
 
 -- Diagnostic colors
 highlight("DiagnosticError", { fg = colors.diagnostic_error })

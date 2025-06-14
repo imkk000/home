@@ -1,4 +1,6 @@
 -- Plugin: https://github.com/nvim-lualine/lualine.nvim
+local lualine_theme = dofile(vim.fn.stdpath("config") .. "/colors/lualine.lua")
+
 return {
   plugins.editor.repo_lualine,
   name = plugins.editor.lualine,
@@ -10,11 +12,27 @@ return {
   config = true,
   opts = {
     sections = {
-      lualine_c = { "filename", { "navic" } },
+      lualine_a = { "mode" },
+      lualine_b = { "branch", "diff", "diagnostics" },
+      lualine_c = { "filename", "navic" },
+      lualine_x = { "encoding", "fileformat", "filetype" },
       lualine_y = { "progress" },
+      lualine_z = { "location" },
     },
+    inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = { "filename" },
+      lualine_x = { "location" },
+      lualine_y = {},
+      lualine_z = {},
+    },
+    tabline = {},
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {},
     options = {
-      theme = "moonfly",
+      theme = lualine_theme,
       disabled_filetypes = {
         statusline = {
           "alpha",

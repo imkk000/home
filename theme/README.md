@@ -1,3 +1,41 @@
+# Tomorrow Fork Palette - Quick Reference
+
+**Theme Characteristics:** Ultra-dark, eye-comfortable, muted blue accents, professional coding theme
+
+## Core Colors
+
+```
+Backgrounds:  #0a0c0f → #0f1216 → #1a2128  (darkest to lighter)
+Text:         #8a9299 → #5a6066 → #3a4248  (main to dimmed to subtle)
+Blue Accents: #4a7a95 → #3a6a85 → #3a5a75  (primary to secondary to deep)
+```
+
+## Semantic Colors
+
+```
+Success (Green): #5a6a5f
+Warning (Yellow): #a8955a
+Error (Red):     #a85a57
+Info (Cyan):     #3a6a85
+```
+
+## ANSI Colors (Terminal)
+
+```
+Black:   #0a0c0f  Red:     #8a4a47  Green:   #4a5a4f  Yellow:  #8a7a42
+Blue:    #3a5a75  Magenta: #5a4a75  Cyan:    #2a5a75  White:   #8a9299
+Bright:  #1a2128  #a85a57  #5a6a5f  #a8955a  #4a7a95  #6a5a85  #3a6a85  #9aa7b0
+```
+
+## Key Principles
+
+- **Primary background:** `#0a0c0f` (ultra dark, not pure black)
+- **Primary text:** `#8a9299` (whisper soft gray)
+- **Primary accent:** `#4a7a95` (muted sky blue)
+- **All colors are muted/desaturated** for eye comfort
+- **No harsh contrasts** - professional, subtle aesthetic
+- **Blue-focused accent palette** with warm semantic colors
+
 ## Theme Information
 
 - **Name:** Tomorrow Fork

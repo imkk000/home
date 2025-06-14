@@ -1,3 +1,4 @@
+set -Ux _ZO_MAXAGE 100000000
 zoxide init fish | source
 
 fzf --fish | source

@@ -21,13 +21,13 @@ return {
       "filesystem",
       "buffers",
       "git_status",
-      "document_symbols",
     },
     source_selector = { statusline = false },
     filesystem = {
       use_libuv_file_watcher = true,
       filtered_items = {
         always_show_by_pattern = {
+          ".taskfile*",
           ".mockery*",
           ".golangci*",
           ".gitlab*",

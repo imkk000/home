@@ -2,8 +2,9 @@
 return {
   plugins.editor.repo_persistence,
   name = plugins.editor.persistence,
-  event = "BufReadPre",
+  event = "VeryLazy",
   config = true,
+  lazy = true,
   keys = {
     -- stylua: ignore
     { "<leader>s", function() require('persistence').select() end, desc = " Select Session" },

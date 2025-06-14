@@ -3,6 +3,7 @@ new_abbr goi "go install %@latest"
 new_abbr gog "go get -u"
 new_abbr gob "go build -ldflags='-w -s' -o"
 new_abbr gomd "go mod tidy"
+new_abbr gome "go mod edit"
 
 new_abbr_go gopackages "golang.org/x/tools/go/packages"
 new_abbr_go cloudflare "github.com/cloudflare/cloudflare-go/v4"
