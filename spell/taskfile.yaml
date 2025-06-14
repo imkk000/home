@@ -1,0 +1,11 @@
+---
+version: 3
+tasks:
+  deploy:
+    dir: "{{.PWD}}"
+    cmd: >
+      nvim --headless
+      -c "mkspell! ../nvim/spell/en neovim.spell"
+      -c "quit"
+  genspell: >
+    go run .
