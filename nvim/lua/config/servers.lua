@@ -12,11 +12,27 @@ local lsp = {
   "dockerls",
   "docker_compose_language_service",
   "gopls",
+  "dartls",
+}
+local mason_lsp = {
+  "buf_ls",
+  "bashls",
+  "jsonls",
+  "lua_ls",
+  "yamlls",
+  "marksman",
+  "emmet_ls",
+  "html",
+  "ts_ls",
+  "cssls",
+  "dockerls",
+  "docker_compose_language_service",
+  "gopls",
 }
 
 _G.servers = {
   lsp = lsp,
-  mason_lsp = lsp,
+  mason_lsp = mason_lsp,
   null_ls = {
     "buf",
     "checkmake",
@@ -37,10 +53,12 @@ _G.servers = {
     "spell",
     "stylua",
     "yamllint",
+    "dart_format",
   },
   sources_null_ls = function()
     local builtins = require("null-ls").builtins
     return {
+      builtins.formatting.dart_format,
       builtins.code_actions.gomodifytags,
       builtins.code_actions.impl,
       builtins.completion.spell,

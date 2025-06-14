@@ -14,7 +14,7 @@ mkdir -p ~/.tmux/themes ~/.tmux/modules
 make_link tmux/tmux.conf ~/.tmux.conf
 make_link tmux/gitmux.conf ~/.gitmux.conf
 make_link tmux/tomorrow_fork.tmux ~/.tmux/themes/tomorrow_fork.tmux
-make_link tmux/go.fish ~/.tmux/modules/go.fish
+make_link tmux/tmux_go.fish ~/.tmux/modules/go.fish
 
 mkdir -p ~/.vscode/extensions
 make_dir_link vscode/tomorrow-fork ~/.vscode/extensions/tomorrow-fork
