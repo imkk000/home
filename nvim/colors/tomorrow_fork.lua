@@ -43,6 +43,65 @@ local function highlight(group, opts)
   vim.api.nvim_set_hl(0, group, opts)
 end
 
+-- Main telescope windows
+highlight("TelescopeNormal", { bg = colors.bg_alt, fg = colors.fg_primary })
+highlight("TelescopeBorder", { bg = colors.bg_alt, fg = colors.border })
+
+-- Prompt section (search input)
+highlight("TelescopePromptNormal", { bg = colors.bg_highlight, fg = colors.fg_primary })
+highlight("TelescopePromptBorder", { bg = colors.bg_highlight, fg = colors.blue_muted })
+highlight("TelescopePromptTitle", { bg = colors.blue_muted, fg = colors.bg_primary, bold = true })
+highlight("TelescopePromptPrefix", { bg = colors.bg_highlight, fg = colors.blue_muted, bold = true })
+highlight("TelescopePromptCounter", { bg = colors.bg_highlight, fg = colors.fg_dim })
+
+-- Results section (file list)
+highlight("TelescopeResultsNormal", { bg = colors.bg_alt, fg = colors.fg_primary })
+highlight("TelescopeResultsBorder", { bg = colors.bg_alt, fg = colors.border })
+highlight("TelescopeResultsTitle", { bg = colors.cyan_soft, fg = colors.bg_primary, bold = true })
+
+-- Preview section
+highlight("TelescopePreviewNormal", { bg = colors.bg_primary, fg = colors.fg_primary })
+highlight("TelescopePreviewBorder", { bg = colors.bg_primary, fg = colors.border })
+highlight("TelescopePreviewTitle", { bg = colors.blue_deep, fg = colors.bg_primary, bold = true })
+
+-- Selection and matching
+highlight("TelescopeSelection", { bg = colors.bg_highlight, fg = colors.fg_primary, bold = true })
+highlight("TelescopeSelectionCaret", { bg = colors.bg_highlight, fg = colors.blue_muted, bold = true })
+highlight("TelescopeMatching", { bg = colors.bg_alt, fg = colors.yellow_muted, bold = true })
+
+-- File type and syntax highlighting in results
+highlight("TelescopeResultsClass", { fg = colors.cyan_soft })
+highlight("TelescopeResultsConstant", { fg = colors.blue_muted })
+highlight("TelescopeResultsField", { fg = colors.fg_primary })
+highlight("TelescopeResultsFunction", { fg = colors.cyan_soft })
+highlight("TelescopeResultsMethod", { fg = colors.cyan_soft })
+highlight("TelescopeResultsOperator", { fg = colors.fg_dim })
+highlight("TelescopeResultsStruct", { fg = colors.blue_muted })
+highlight("TelescopeResultsVariable", { fg = colors.fg_primary })
+highlight("TelescopeResultsLineNr", { fg = colors.fg_comment })
+highlight("TelescopeResultsIdentifier", { fg = colors.fg_primary })
+highlight("TelescopeResultsNumber", { fg = colors.yellow_muted })
+highlight("TelescopeResultsComment", { fg = colors.fg_comment })
+highlight("TelescopeResultsSpecialComment", { fg = colors.fg_dim })
+
+-- Multi selection
+highlight("TelescopeMultiSelection", { bg = colors.bg_selection, fg = colors.blue_muted, bold = true })
+highlight("TelescopeMultiIcon", { fg = colors.blue_muted })
+
+-- Path highlighting
+highlight("TelescopeResultsTitle", { bg = colors.cyan_soft, fg = colors.bg_primary, bold = true })
+highlight("TelescopePreviewTitle", { bg = colors.blue_deep, fg = colors.bg_primary, bold = true })
+
+-- Additional semantic highlighting
+highlight("TelescopeResultsSpecial", { fg = colors.purple_muted })
+highlight("TelescopeResultsTag", { fg = colors.green_muted })
+
+-- Git integration highlights (if using git_files, etc.)
+highlight("TelescopeResultsDiffAdd", { fg = colors.green_muted })
+highlight("TelescopeResultsDiffChange", { fg = colors.yellow_muted })
+highlight("TelescopeResultsDiffDelete", { fg = colors.red_soft })
+highlight("TelescopeResultsDiffUntracked", { fg = colors.purple_muted })
+
 -- Rainbow delimiters
 highlight("RainbowDelimiterRed", { fg = "#C55A5A" })
 highlight("RainbowDelimiterYellow", { fg = "#C9A865" })

@@ -7,7 +7,7 @@ mkdir -p ~/.config/fish/conf.d
 make_link fish/config.fish ~/.config/fish/config.fish
 make_dir_link fish/after ~/.config/fish/after
 for file in (/bin/ls fish/before/*.fish)
-  make_link $file ~/.config/fish/conf.d/(path basename $file)
+    make_link $file ~/.config/fish/conf.d/(path basename $file)
 end
 
 mkdir -p ~/.tmux/themes ~/.tmux/modules

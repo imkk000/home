@@ -15,7 +15,7 @@ alias kctx="kubectx"
 alias glu="glab_mr_url"
 
 switch (uname)
-  case Linux
-    alias pbcopy="xclip -sel clipboard"
-    alias pbpaste="xclip -sel clipboard -o"
+    case Linux
+        alias pbcopy="xclip -sel clipboard"
+        alias pbpaste="xclip -sel clipboard -o"
 end

@@ -21,4 +21,8 @@ function M.map(opts, has, modes, lhs, rhs, desc)
   vim.keymap.set(modes, lhs, rhs, opts)
 end
 
+function M.format(args)
+  vim.lsp.buf.format({ timeout_ms = 10000, async = false, bufnr = args.buf })
+end
+
 return M

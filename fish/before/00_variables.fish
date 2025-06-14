@@ -9,8 +9,8 @@ set -U fish_greeting ""
 set -U nvm_default_version v24.1.0
 
 switch (uname)
-  case Darwin
-    set -Ux BROWSER open
-    set -Ux HOMEBREW_NO_ANALYTICS 1
-    set -Ux CONFIG_DIR ~/Library/Application\ Support
+    case Darwin
+        set -Ux BROWSER open
+        set -Ux HOMEBREW_NO_ANALYTICS 1
+        set -Ux CONFIG_DIR ~/Library/Application\ Support
 end

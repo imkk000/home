@@ -38,7 +38,7 @@ keymap.set({ "n", "o", "x" }, "E", "<cmd>lua require('spider').motion('e')<cr>",
 opts.desc = " spider-b"
 keymap.set({ "n", "o", "x" }, "B", "<cmd>lua require('spider').motion('b')<cr>", opts)
 
-opts.desc = " Split Window Verically"
+opts.desc = " Split Window Vertically"
 keymap.set("n", "<c-w>\\", "<c-w>v", opts)
 opts.desc = " Split Window"
 keymap.set("n", "<c-w>-", "<c-w>s", opts)
@@ -47,3 +47,9 @@ opts.desc = "Previous Buffer"
 keymap.set("n", "[b", "<cmd>bprev<cr>", opts)
 opts.desc = "Next Buffer"
 keymap.set("n", "]b", "<cmd>bnext<cr>", opts)
+
+-- force to use the default format function
+local format = function()
+  require("util.lsp").format({ buf = 0 })
+end
+vim.keymap.set("n", "gf", format, { desc = "Format" })

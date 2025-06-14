@@ -87,10 +87,10 @@ return {
         util.map(buf_opts, ...)
       end
       local format = function()
-        vim.lsp.buf.format({ timeout_ms = 10000, async = false, bufnr = bufnr })
+        util.format({ buf = bufnr })
       end
 
-      map("formatting", "n", "gf", format, "Format")
+      -- move format file to keymap
       map("rangeFormatting", "v", "gf", format, "Format")
       map("rename", "n", "gn", vim.lsp.buf.rename, "Rename")
       -- stylua: ignore
@@ -114,15 +114,6 @@ return {
         vim.diagnostic.enable(not vim.diagnostic.is_enabled())
         vim.notify("Diagnostic: " .. tostring(vim.diagnostic.is_enabled()), vim.log.levels.INFO)
       end, "Toggle Diagnostics")
-
-      -- format on save
-      if util.has(bufnr, "formatting") then
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          group = vim.api.nvim_create_augroup("formatting", { clear = true }),
-          buffer = bufnr,
-          callback = format,
-        })
-      end
     end
 
     for _, server in ipairs(servers.lsp) do
