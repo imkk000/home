@@ -1,4 +1,5 @@
 function fish_prompt
+    set -l last_status $status
     set -l pwd (prompt_pwd --full-length-dirs=3 --dir-length=3)
     set -l name (whoami)
     switch $name
@@ -8,10 +9,23 @@ function fish_prompt
             set name (string upper $name)
     end
 
-    string join "" -- \
-        (set_color -o cc6699) "$name " (set_color normal) \
-        (set_color -o 8a7a42) $pwd (set_color normal) \n \
-        (set_color -o 999999) "\$> " (set_color normal)
+    set_color -o cc6699
+    echo -n $name
+    set_color normal
+
+    set_color -o 8a7a42
+    echo -n " $pwd"
+    set_color normal
+
+    if test $last_status -ne 0
+        set_color -o brred
+        echo -n " [ $last_status ]"
+        set_color normal
+    end
+    echo
+    set_color 999999
+    echo -n "\$> "
+    set_color normal
 end
 
 function fish_right_prompt

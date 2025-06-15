@@ -1,0 +1,8 @@
+bierner.markdown-mermaid
+esbenp.prettier-vscode
+golang.go
+oderwat.indent-rainbow
+redhat.vscode-yaml
+undefined_publisher.tomorrow-fork
+vscodevim.vim
+yzhang.markdown-all-in-one
