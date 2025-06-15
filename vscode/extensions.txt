@@ -1,5 +1,8 @@
 bierner.markdown-mermaid
+davidanson.vscode-markdownlint
 esbenp.prettier-vscode
+github.copilot
+github.copilot-chat
 golang.go
 oderwat.indent-rainbow
 redhat.vscode-yaml

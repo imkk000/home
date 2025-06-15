@@ -21,3 +21,5 @@ make_dir_link vscode/tomorrow-fork ~/.vscode/extensions/tomorrow-fork
 
 mkdir -p $CONFIG_DIR/Code/User
 make_link vscode/settings.json $CONFIG_DIR/Code/User/settings.json
+
+mkdir -p ~/nvim/spell
