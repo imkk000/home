@@ -18,5 +18,6 @@
   "vim.smartRelativeLine": true,
   "vim.useCtrlKeys": false,
   "workbench.colorTheme": "Tomorrow Fork",
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
+  "git.openRepositoryInParentFolders": "never"
 }
