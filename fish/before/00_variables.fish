@@ -16,5 +16,4 @@ switch (uname)
 end
 
 set -Ux _ZO_MAXAGE 999999999
-set -Ux _ZO_ECHO 1
 set -Ux _ZO_EXCLUDE_DIRS '*node_modules*;*.git*'

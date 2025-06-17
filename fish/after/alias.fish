@@ -17,6 +17,7 @@ alias cat="bat"
 alias k="kubectl"
 alias kctx="kubectx"
 alias glu="glab_mr_url"
+alias lde="load_env"
 
 switch (uname)
     case Linux
