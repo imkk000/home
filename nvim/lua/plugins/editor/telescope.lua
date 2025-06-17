@@ -46,6 +46,7 @@ return {
     { "<leader>fk", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = " Buffer Grep" },
     { "<leader>fl", "<cmd>Telescope luasnip<cr>", desc = " Luasnip" },
     { "<leader>u", "<cmd>Telescope undo<cr>", desc = " Undo" },
+    { "<leader>fk", "<cmd>Telescope resume<cr>", desc = " Resume" },
   },
   config = function(_, opt)
     require("telescope").setup(opt)

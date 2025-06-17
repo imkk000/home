@@ -5,7 +5,7 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.fontFamily": "'Monaspace Argon', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'VictorMono Nerd Font Mono', 'Monaspace Argon', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 13,
   "editor.lineNumbers": "relative",
   "editor.mouseWheelZoom": true,
@@ -19,5 +19,8 @@
   "vim.useCtrlKeys": false,
   "workbench.colorTheme": "Tomorrow Fork",
   "workbench.sideBar.location": "right",
-  "git.openRepositoryInParentFolders": "never"
+  "git.openRepositoryInParentFolders": "never",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
