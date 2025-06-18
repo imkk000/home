@@ -22,5 +22,6 @@
   "git.openRepositoryInParentFolders": "never",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "explorer.confirmPasteNative": false
 }

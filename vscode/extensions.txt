@@ -1,4 +1,6 @@
 bierner.markdown-mermaid
+dart-code.dart-code
+dart-code.flutter
 davidanson.vscode-markdownlint
 esbenp.prettier-vscode
 github.copilot
