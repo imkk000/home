@@ -43,7 +43,7 @@ return {
     { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = " Live Grep" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = " Recent" },
     { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = " Quickfix" },
-    { "<leader>fk", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = " Buffer Grep" },
+    { "<leader>fi", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = " Buffer Grep" },
     { "<leader>fl", "<cmd>Telescope luasnip<cr>", desc = " Luasnip" },
     { "<leader>u", "<cmd>Telescope undo<cr>", desc = " Undo" },
     { "<leader>fk", "<cmd>Telescope resume<cr>", desc = " Resume" },
