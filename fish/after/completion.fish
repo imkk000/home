@@ -1,4 +1,5 @@
 zoxide init fish | source
+kubetail completion fish | source
 
 fzf --fish | source
 fzf_configure_bindings --history=\cr --directory=\cf --git_status=\cg --git_log=\e\cg --variables= --processes=
