@@ -26,7 +26,7 @@ return {
     textobjects = {
       select = {
         enable = true,
-        lookahead = true,
+        lookahead = false,
         keymaps = {
           ["aa"] = "@parameter.outer",
           ["ia"] = "@parameter.inner",
@@ -39,36 +39,14 @@ return {
           ["al"] = "@loop.outer",
           ["il"] = "@loop.inner",
           ["at"] = "@comment.outer",
+          ["io"] = "@assignment.inner",
+          ["ao"] = "@assignment.outer",
+          ["fk"] = "@field.key",
+          ["fv"] = "@field.value",
+          ["ae"] = "@field.outer",
         },
       },
-      move = {
-        enable = true,
-        set_jumps = true,
-        goto_next_start = {
-          ["]m"] = "@function.outer",
-          ["]]"] = "@class.outer",
-        },
-        goto_next_end = {
-          ["]M"] = "@function.outer",
-          ["]["] = "@class.outer",
-        },
-        goto_previous_start = {
-          ["[m"] = "@function.outer",
-          ["[["] = "@class.outer",
-        },
-        goto_previous_end = {
-          ["[M"] = "@function.outer",
-          ["[]"] = "@class.outer",
-        },
-        goto_previous = {
-          ["[i"] = "@conditional.inner",
-          ["[a"] = "@comment.outer",
-        },
-        goto_next = {
-          ["]i"] = "@conditional.inner",
-          ["]a"] = "@comment.outer",
-        },
-      },
+      move = { enable = false },
       swap = { enable = false },
       incremental_selection = { enable = false },
       lsp_interop = { enable = false },

@@ -23,5 +23,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "explorer.confirmPasteNative": false
+  "explorer.confirmPasteNative": false,
+  "extensions.ignoreRecommendations": true
 }
