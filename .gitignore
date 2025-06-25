@@ -2,3 +2,6 @@ custom.utf-8.spl
 en.utf-8.add
 aspell.en.pws
 neovim.spell
+
+# FVM Version Cache
+.fvm/
