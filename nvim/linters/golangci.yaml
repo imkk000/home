@@ -53,6 +53,8 @@ linters:
     revive:
       enable-all-rules: true
       rules:
+        - name: add-constant
+          disabled: true
         - name: exported
           disabled: true
     errcheck:
