@@ -24,5 +24,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "explorer.confirmPasteNative": false,
-  "extensions.ignoreRecommendations": true
+  "extensions.ignoreRecommendations": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
 }

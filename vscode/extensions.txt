@@ -11,3 +11,4 @@ redhat.vscode-yaml
 undefined_publisher.tomorrow-fork
 vscodevim.vim
 yzhang.markdown-all-in-one
+zxh404.vscode-proto3
