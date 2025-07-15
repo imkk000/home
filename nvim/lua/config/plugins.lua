@@ -65,6 +65,7 @@ local _plugins = {
     persistence = "folke/persistence.nvim",
     trim = "cappyzawa/trim.nvim",
     bookmarks = "tomasky/bookmarks.nvim",
+    import = "piersolenski/import.nvim",
   },
   ui = {
     web_devicons = "nvim-tree/nvim-web-devicons",
