@@ -1,4 +1,5 @@
 bierner.markdown-mermaid
+bmalehorn.vscode-fish
 dart-code.dart-code
 dart-code.flutter
 davidanson.vscode-markdownlint
