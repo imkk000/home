@@ -30,5 +30,6 @@
   },
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-  }
+  },
+  "github.copilot.nextEditSuggestions.enabled": true
 }
