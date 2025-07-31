@@ -13,6 +13,7 @@ local lsp = {
   "docker_compose_language_service",
   "gopls",
   "dartls",
+  "clangd",
 }
 local mason_lsp = {
   "buf_ls",
@@ -28,6 +29,7 @@ local mason_lsp = {
   "dockerls",
   "docker_compose_language_service",
   "gopls",
+  "clangd",
 }
 
 _G.servers = {
