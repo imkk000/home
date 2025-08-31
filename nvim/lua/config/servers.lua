@@ -30,6 +30,7 @@ local mason_lsp = {
   "docker_compose_language_service",
   "gopls",
   "clangd",
+  "black",
 }
 
 _G.servers = {
@@ -56,6 +57,7 @@ _G.servers = {
     "stylua",
     "yamllint",
     "dart_format",
+    "black",
   },
   sources_null_ls = function()
     local builtins = require("null-ls").builtins
@@ -79,6 +81,7 @@ _G.servers = {
       builtins.formatting.prettier,
       builtins.formatting.shfmt,
       builtins.formatting.stylua,
+      builtins.formatting.black,
       builtins.formatting.golines.with({
         extra_args = {
           "--max-len=180",
