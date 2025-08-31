@@ -30,7 +30,6 @@ local mason_lsp = {
   "docker_compose_language_service",
   "gopls",
   "clangd",
-  "black",
 }
 
 _G.servers = {
