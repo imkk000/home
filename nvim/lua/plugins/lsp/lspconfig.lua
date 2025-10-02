@@ -72,7 +72,6 @@ return {
     vim.lsp.enable(servers.lsp, false)
     vim.lsp.inlay_hint.enable(true)
 
-    local config = require("lspconfig")
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities = cmp_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
     local on_attach = function(client, bufnr)
@@ -126,7 +125,7 @@ return {
         on_new_config(opts.servers[server])
       end
 
-      config[server].setup({
+      vim.lsp.config(server, {
         settings = settings,
         capabilities = capabilities,
         on_attach = on_attach,
