@@ -69,7 +69,7 @@ return {
     },
   },
   config = function(_, opts)
-    vim.lsp.enable(servers.lsp, false)
+    vim.lsp.enable(servers.lsp, true)
     vim.lsp.inlay_hint.enable(true)
 
     local cmp_lsp = require("cmp_nvim_lsp")
