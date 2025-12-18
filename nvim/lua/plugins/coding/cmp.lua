@@ -5,13 +5,6 @@ return {
   event = "InsertEnter",
   dependencies = {
     {
-      -- Plugin: https://github.com/zbirenbaum/copilot-cmp
-      plugins.coding.completion.sources.repo_copilot_cmp,
-      name = plugins.coding.completion.sources.copilot_cmp,
-      dependencies = plugins.coding.completion.copilot,
-      config = true,
-    },
-    {
       -- Plugin: https://github.com/hrsh7th/cmp-nvim-lsp
       plugins.coding.completion.sources.repo_lsp_cmp,
       name = plugins.coding.completion.sources.lsp_cmp,
@@ -91,7 +84,6 @@ return {
     cmp.setup({
       sources = cmp.config.sources({
         { name = "luasnip",  priority = 1000 },
-        { name = "copilot",  priority = 750 },
         { name = "nvim_lsp", priority = 500 },
         { name = "path",     priority = 200 },
         { name = "spell",    priority = 100 },
