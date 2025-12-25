@@ -38,6 +38,7 @@ local _plugins = {
     autopairs = "windwp/nvim-autopairs",
   },
   editor = {
+    catppuccin = "catppuccin/nvim",
     mini = {
       mini = "echasnovski/mini.nvim",
       mini_surround = "echasnovski/mini.surround",

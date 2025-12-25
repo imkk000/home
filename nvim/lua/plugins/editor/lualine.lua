@@ -1,6 +1,4 @@
 -- Plugin: https://github.com/nvim-lualine/lualine.nvim
-local lualine_theme = dofile(vim.fn.stdpath("config") .. "/colors/lualine.lua")
-
 return {
   plugins.editor.repo_lualine,
   name = plugins.editor.lualine,
@@ -32,7 +30,7 @@ return {
     inactive_winbar = {},
     extensions = {},
     options = {
-      theme = lualine_theme,
+      theme = "catppuccin",
       disabled_filetypes = {
         statusline = {
           "alpha",

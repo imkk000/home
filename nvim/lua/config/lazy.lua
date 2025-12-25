@@ -29,4 +29,4 @@ require("lazy").setup({
   checker = { enabled = false },
 })
 
-vim.cmd.colorscheme("tomorrow_fork")
+vim.cmd.colorscheme("catppuccin-mocha")
