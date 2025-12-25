@@ -20,7 +20,6 @@
   "security.workspace.trust.enabled": false,
   "vim.smartRelativeLine": true,
   "vim.useCtrlKeys": false,
-  "workbench.colorTheme": "Tomorrow Fork",
   "workbench.sideBar.location": "right",
   "git.openRepositoryInParentFolders": "never",
   "[jsonc]": {
@@ -43,5 +42,7 @@
   },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
-  }
+  },
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.colorTheme": "Catppuccin Mocha"
 }
