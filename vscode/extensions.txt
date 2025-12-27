@@ -6,8 +6,6 @@ dart-code.flutter
 davidanson.vscode-markdownlint
 eamodio.gitlens
 esbenp.prettier-vscode
-github.copilot
-github.copilot-chat
 golang.go
 l-i-v.mql-tools
 ms-vscode.cpptools

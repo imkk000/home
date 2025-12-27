@@ -3,12 +3,14 @@ return {
   plugins.coding.repo_treesitter,
   name = plugins.coding.treesitter,
   event = { "BufReadPost", "BufNewFile" },
+  lazy = false,
   build = ":TSUpdate",
   dependencies = {
     {
       -- Plugin: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
       plugins.coding.repo_treesitter_textobject,
       name = plugins.coding.treesitter_textobject,
+      branch = "main",
     },
     {
       -- Plugin: https://github.com/nvim-treesitter/nvim-treesitter-context
@@ -52,7 +54,4 @@ return {
       lsp_interop = { enable = false },
     },
   },
-  config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
-  end,
 }

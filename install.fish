@@ -10,13 +10,13 @@ for file in (/bin/ls fish/before/*.fish)
     make_link $file ~/.config/fish/conf.d/(path basename $file)
 end
 
-mkdir -p ~/.tmux/themes ~/.tmux/modules
+mkdir -p ~/.tmux
 make_link tmux/tmux.conf ~/.tmux.conf
 make_link tmux/gitmux.conf ~/.gitmux.conf
 
 mkdir -p ~/.vscode/extensions
 
-mkdir -p $CONFIG_DIR/Code/User
-make_link vscode/settings.json $CONFIG_DIR/Code/User/settings.json
+mkdir -p $CONFIG_DIR/Code\ -\ OSS/User
+make_link vscode/settings.json $CONFIG_DIR/Code\ -\ OSS/User/settings.json
 
-mkdir -p ~/nvim/spell
+make_dir_link nvim $CONFIG_DIR/nvim
