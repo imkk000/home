@@ -1,5 +1,4 @@
 zoxide init fish | source
-kubetail completion fish | source
 gup completion fish | source
 
 fzf --fish | source
